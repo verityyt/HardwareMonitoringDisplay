@@ -4,12 +4,11 @@ import backend.errors.NoComponentFoundException
 import backend.errors.NoComponentSensorFoundException
 import com.profesorfalken.jsensors.JSensors
 
-class CPU {
-
-    val cpus = JSensors.get.components().cpus
-    val name = cpus.first().name
+object CPU {
 
     fun temperature(): Double? {
+        val cpus = JSensors.get.components().cpus
+
         if (cpus != null) {
             for (cpu in cpus) {
                 if (cpu.sensors != null) {
@@ -23,6 +22,12 @@ class CPU {
         }
 
         return null
+    }
+
+    fun name(): String {
+        val cpus = JSensors.get.components().cpus
+        val name = cpus.first().name
+        return name
     }
 
 }
