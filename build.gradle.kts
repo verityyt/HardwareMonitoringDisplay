@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    compile("com.profesorfalken","jSensors","2.2.1")
     compile(kotlin("stdlib-jdk8"))
     testCompile("junit", "junit", "4.12")
 }
