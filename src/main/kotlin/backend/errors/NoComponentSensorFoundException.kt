@@ -1,3 +1,3 @@
 package backend.errors
 
-class NoComponentSensorFoundException(component: String) : Exception("No sensor for $component found!")
+class NoComponentSensorFoundException(component: String) : Exception("No sensor for the $component found!")

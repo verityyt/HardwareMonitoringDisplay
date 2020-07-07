@@ -6,6 +6,10 @@ import com.profesorfalken.jsensors.JSensors
 
 object CPU {
 
+    /**
+     * Returns the current temperature of the CPU
+     * !!! Takes 1000ms to return !!!
+     */
     fun temperature(): Double? {
         val cpus = JSensors.get.components().cpus
 
@@ -24,6 +28,10 @@ object CPU {
         return null
     }
 
+    /**
+     * Returns the device name and the series of the CPU
+     * !!! Takes 1000ms to return !!!
+     */
     fun name(): String {
         val cpus = JSensors.get.components().cpus
         val name = cpus.first().name

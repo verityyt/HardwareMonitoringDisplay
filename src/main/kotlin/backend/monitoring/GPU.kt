@@ -6,6 +6,10 @@ import com.profesorfalken.jsensors.JSensors
 
 object GPU {
 
+    /**
+     * Returns the current temperature of the GPU
+     * !!! Takes 1000ms to return !!!
+     */
     fun temperature(): Double? {
         val gpus = JSensors.get.components().gpus
 
@@ -24,6 +28,10 @@ object GPU {
         return null
     }
 
+    /**
+     * Returns the device name and the series of the GPU
+     * !!! Takes 1000ms to return !!!
+     */
     fun name(): String {
         val gpus = JSensors.get.components().gpus
         val name = gpus.first().name
