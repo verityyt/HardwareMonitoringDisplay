@@ -1,5 +1,7 @@
 package backend.monitoring
 
+import backend.errors.NoComponentFoundException
+import backend.errors.NoComponentSensorFoundException
 import com.profesorfalken.jsensors.JSensors
 
 class CPU {
@@ -16,8 +18,12 @@ class CPU {
                         map[temperature.name] = "${temperature.value}°C"
                     }
                     return map
+                }else {
+                    throw NoComponentSensorFoundException("CPU")
                 }
             }
+        }else {
+            throw NoComponentFoundException("CPU")
         }
 
         return null
