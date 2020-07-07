@@ -2,7 +2,7 @@ package frontend
 
 import java.awt.Graphics
 import java.awt.Graphics2D
-import java.util.*
+import javax.imageio.ImageIO
 import javax.swing.JComponent
 import javax.swing.JFrame
 import javax.swing.WindowConstants
@@ -26,12 +26,12 @@ object WindowHandler {
 
     fun openWindow() {
 
-        // screen = Put the first screen here
+        screen = StartingScreen
 
         component = object : JComponent() {
             override fun paint(graphics: Graphics?) {
                 if (graphics != null) {
-                    screen.paint(graphics ,graphics as Graphics2D)
+                    screen.paint(graphics ,graphics as Graphics2D,this)
                 }
             }
         }
@@ -46,6 +46,7 @@ object WindowHandler {
         window.isResizable = false
         window.isAlwaysOnTop = true
         window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version}"
+        window.iconImage = ImageIO.read(javaClass.getResource("/WindowIcon.png"))
 
         window.isVisible = true
 

@@ -2,10 +2,10 @@ package frontend
 
 import java.awt.Graphics
 import java.awt.Graphics2D
-import javax.swing.JComponent
+import java.awt.image.ImageObserver
 
-abstract class Screen(index: Int) {
+abstract class Screen {
 
-    abstract fun paint(graphics: Graphics, graphics2D: Graphics2D)
+    abstract fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver)
 
 }
