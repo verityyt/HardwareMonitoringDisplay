@@ -7,17 +7,13 @@ import com.profesorfalken.jsensors.JSensors
 class GPU {
 
     val gpus = JSensors.get.components().gpus
+    val name = gpus.first().name
 
-    fun getTemperatures(): HashMap<String, String>? {
-
+    fun temperature(): Double? {
         if (gpus != null) {
             for (gpu in gpus) {
                 if (gpu.sensors != null) {
-                    val map = HashMap<String, String>()
-                    for (temperature in gpu.sensors.temperatures) {
-                        map[temperature.name] = "${temperature.value}°C"
-                    }
-                    return map
+                    return gpu.sensors.temperatures.first().value
                 }else {
                     throw NoComponentSensorFoundException("GPU")
                 }
@@ -28,7 +24,5 @@ class GPU {
 
         return null
     }
-
-    fun getName(): String = gpus.first().name
 
 }

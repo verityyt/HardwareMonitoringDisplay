@@ -7,17 +7,13 @@ import com.profesorfalken.jsensors.JSensors
 class CPU {
 
     val cpus = JSensors.get.components().cpus
+    val name = cpus.first().name
 
-    fun getTemperatures(): HashMap<String, String>? {
-
+    fun temperature(): Double? {
         if (cpus != null) {
             for (cpu in cpus) {
                 if (cpu.sensors != null) {
-                    val map = HashMap<String, String>()
-                    for (temperature in cpu.sensors.temperatures) {
-                        map[temperature.name] = "${temperature.value}°C"
-                    }
-                    return map
+                    return cpu.sensors.temperatures.first().value
                 }else {
                     throw NoComponentSensorFoundException("CPU")
                 }
@@ -28,7 +24,5 @@ class CPU {
 
         return null
     }
-
-    fun getName(): String = cpus.first().name
 
 }
