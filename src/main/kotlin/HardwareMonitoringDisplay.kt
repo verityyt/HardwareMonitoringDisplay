@@ -21,7 +21,7 @@ object HardwareMonitoringDisplay {
     /**
      * Version of the Application
      */
-    val version = "v0.0.2"
+    val version = "v0.1.2"
 
     @JvmStatic
     fun main(args: Array<String>) {

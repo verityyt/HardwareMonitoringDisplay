@@ -1,6 +1,8 @@
 package frontend
 
+import frontend.screens.CircleStyleScreen
 import frontend.screens.StartingScreen
+import javafx.scene.shape.Circle
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -30,7 +32,7 @@ object WindowHandler {
     lateinit var screen: Screen
 
     /**
-     * Changable fps count of the window
+     * Changeable fps count of the window
      */
     var fps: Long = 60
 
@@ -92,7 +94,7 @@ object WindowHandler {
             window.setSize(800, 480)
             window.isResizable = false
             window.isAlwaysOnTop = true
-            window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version}"
+            window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x480)"
             window.iconImage = ImageIO.read(javaClass.getResource("/images/WindowIcon.png"))
 
             window.isVisible = true
