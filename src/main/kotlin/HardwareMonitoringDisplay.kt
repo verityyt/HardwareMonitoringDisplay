@@ -1,3 +1,4 @@
+import backend.Configuration
 import backend.monitoring.CPU
 import backend.monitoring.GPU
 import frontend.CustomFont
@@ -33,6 +34,15 @@ object HardwareMonitoringDisplay {
 
                 if (WindowHandler.screen is StartingScreen) {
                     (WindowHandler.screen as StartingScreen).animateLoading( 20, 30)
+                }
+
+                println("Creating/Loading configuration")
+
+                Configuration.create().also {
+                    if (WindowHandler.screen is StartingScreen) {
+                        (WindowHandler.screen as StartingScreen).startingText = "loading.config"
+                        (WindowHandler.screen as StartingScreen).animateLoading( 35, 30)
+                    }
                 }
 
                 println("Registering fonts...")
