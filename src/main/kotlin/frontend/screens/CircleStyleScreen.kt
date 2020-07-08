@@ -40,21 +40,23 @@ object CircleStyleScreen : Screen() {
         // Draw first Circle
         graphics.color = ColorPalette.FIRST_ACCENT
         graphics2D.stroke = BasicStroke(7f)
-        graphics.drawArc(90,115,250,250,180 - cpuArcCalc,180 + cpuArcCalc)
+        graphics.drawArc(90,175,250,250,180 - cpuArcCalc,180 + cpuArcCalc)
+
+        //138 -> 198
 
         // Draw second Circle
         graphics.color = ColorPalette.SECOND_ACCENT
         graphics2D.stroke = BasicStroke(7f)
-        graphics.drawArc(460,115,250,250,180 - gpuArcCalc,180 + gpuArcCalc)
+        graphics.drawArc(460,175,250,250,180 - gpuArcCalc,180 + gpuArcCalc)
 
         if (CustomFont.light != null) {
             CustomFont.drawCentredString(
-                graphics, Rectangle(90, 206, 250, 19), "CPU", ColorPalette.FIRST_ACCENT,
+                graphics, Rectangle(90, 266, 250, 19), "CPU", ColorPalette.FIRST_ACCENT,
                 CustomFont.light?.deriveFont(24f)!!
             )
 
             CustomFont.drawCentredString(
-                graphics, Rectangle(460, 206, 250, 19), "GPU", ColorPalette.SECOND_ACCENT,
+                graphics, Rectangle(460, 266, 250, 19), "GPU", ColorPalette.SECOND_ACCENT,
                 CustomFont.light?.deriveFont(24f)!!
             )
         }
@@ -62,12 +64,12 @@ object CircleStyleScreen : Screen() {
         if (CustomFont.regular != null) {
 
             CustomFont.drawCentredString(
-                graphics, Rectangle(90, 235, 250, 33), cpuTemperature, Color.BLACK,
+                graphics, Rectangle(90, 295, 250, 33), cpuTemperature, Color.BLACK,
                 CustomFont.regular?.deriveFont(45f)!!
             )
 
             CustomFont.drawCentredString(
-                graphics, Rectangle(460, 235, 250, 33), gpuTemperature, Color.BLACK,
+                graphics, Rectangle(460, 295, 250, 33), gpuTemperature, Color.BLACK,
                 CustomFont.regular?.deriveFont(45f)!!
             )
         }

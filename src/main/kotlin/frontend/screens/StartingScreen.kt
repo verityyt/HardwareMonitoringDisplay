@@ -27,23 +27,23 @@ object StartingScreen : Screen() {
 
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
 
-        graphics.drawImage(ImageIO.read(javaClass.getResource("/images/Rocket.png")),337,138,125,125, observer)
+        graphics.drawImage(ImageIO.read(javaClass.getResource("/images/Rocket.png")),337,198,125,125, observer)
 
         graphics.color = Color.BLACK
-        graphics.fillRect(149, 306, 502, 8)
+        graphics.fillRect(149, 366, 502, 8)
 
         graphics.color = Color.WHITE
-        graphics.fillRect(150, 307, 500, 6)
+        graphics.fillRect(150, 367, 500, 6)
 
         graphics.color = Color.BLACK
-        graphics.fillRect(150, 307, startingPercentage * 5, 6)
+        graphics.fillRect(150, 367, startingPercentage * 5, 6)
 
         if (CustomFont.regular == null) {
             CustomFont.registerRegular()
         }
         CustomFont.drawCentredString(
             graphics,
-            Rectangle(0, 327, 800, 16),
+            Rectangle(0, 387, 800, 16),
             LanguageTranslator.get(startingText),
             Color.BLACK,
             CustomFont.regular?.deriveFont(16f)!!

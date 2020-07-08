@@ -54,7 +54,7 @@ object WindowHandler {
                         )
 
                         graphics.color = Color.WHITE
-                        graphics.fillRect(0, 0, 800, 480)
+                        graphics.fillRect(0, 0, 800, 600)
 
                         screen.paint(graphics, graphics, this)
                     }
@@ -91,10 +91,10 @@ object WindowHandler {
             })
 
             window.isUndecorated = false
-            window.setSize(800, 480)
+            window.setSize(800, 600)
             window.isResizable = false
             window.isAlwaysOnTop = true
-            window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x480)"
+            window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x600)"
             window.iconImage = ImageIO.read(javaClass.getResource("/images/WindowIcon.png"))
 
             window.isVisible = true
