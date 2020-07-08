@@ -5,6 +5,8 @@ import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
 import java.awt.RenderingHints
+import java.awt.event.KeyEvent
+import java.awt.event.KeyListener
 import javax.imageio.ImageIO
 import javax.swing.JComponent
 import javax.swing.JFrame
@@ -50,6 +52,30 @@ object WindowHandler {
             window.add(component)
 
             window.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
+
+            window.addKeyListener(object : KeyListener {
+                override fun keyTyped(e: KeyEvent?) {
+                }
+
+                override fun keyPressed(e: KeyEvent?) {
+                }
+
+                override fun keyReleased(e: KeyEvent?) {
+                    if(e?.keyCode == 122) {
+
+                        window.dispose()
+                        if(window.isUndecorated) {
+                            window.isUndecorated = false
+                            println("Switched to windowed mode")
+                        }else {
+                            window.isUndecorated = true
+                            println("Switched to fullscreen mode")
+                        }
+                        window.isVisible = true
+                    }
+                }
+
+            })
 
             window.isUndecorated = false
             window.setSize(800, 480)

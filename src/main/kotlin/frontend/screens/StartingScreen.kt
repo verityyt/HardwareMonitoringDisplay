@@ -16,7 +16,7 @@ object StartingScreen : Screen() {
     /**
      * Current percentage of the start process
      */
-    var startingPercentage = 0
+    private var startingPercentage = 0
 
     /**
      * Current process of start process
