@@ -37,24 +37,24 @@ object CircleStyleScreen : Screen() {
 
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
 
-        // Draw Blue Circle
-        graphics.color = ColorPalette.BLUE
+        // Draw first Circle
+        graphics.color = ColorPalette.FIRST_ACCENT
         graphics2D.stroke = BasicStroke(7f)
         graphics.drawArc(90,115,250,250,180 - cpuArcCalc,180 + cpuArcCalc)
 
-        // Draw Purple Circle
-        graphics.color = ColorPalette.PURPLE
+        // Draw second Circle
+        graphics.color = ColorPalette.SECOND_ACCENT
         graphics2D.stroke = BasicStroke(7f)
         graphics.drawArc(460,115,250,250,180 - gpuArcCalc,180 + gpuArcCalc)
 
         if (CustomFont.light != null) {
             CustomFont.drawCentredString(
-                graphics, Rectangle(90, 206, 250, 19), "CPU", ColorPalette.BLUE,
+                graphics, Rectangle(90, 206, 250, 19), "CPU", ColorPalette.FIRST_ACCENT,
                 CustomFont.light?.deriveFont(24f)!!
             )
 
             CustomFont.drawCentredString(
-                graphics, Rectangle(460, 206, 250, 19), "GPU", ColorPalette.PURPLE,
+                graphics, Rectangle(460, 206, 250, 19), "GPU", ColorPalette.SECOND_ACCENT,
                 CustomFont.light?.deriveFont(24f)!!
             )
         }

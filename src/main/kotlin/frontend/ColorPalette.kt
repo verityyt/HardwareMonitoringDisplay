@@ -1,17 +1,18 @@
 package frontend
 
+import backend.Configuration
 import java.awt.Color
 
 object ColorPalette {
 
     /**
-     * Blue accedent of color theme
+     * First accent color of theme
      */
-    val BLUE = Color.decode("#3867D6")
+    val FIRST_ACCENT = Color.decode(Configuration.get("accent_color_1"))
 
     /**
-     * Purple accedent of color theme
+     * Second accent color of theme
      */
-    val PURPLE = Color.decode("#8854D0")
+    val SECOND_ACCENT = Color.decode(Configuration.get("accent_color_2"))
 
 }
