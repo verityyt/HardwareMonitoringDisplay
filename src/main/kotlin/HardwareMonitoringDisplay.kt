@@ -1,6 +1,9 @@
 import backend.monitoring.CPU
 import backend.monitoring.GPU
+import frontend.CustomFont
+import frontend.screens.StartingScreen
 import frontend.WindowHandler
+import java.util.*
 
 object HardwareMonitoringDisplay {
 
@@ -23,15 +26,48 @@ object HardwareMonitoringDisplay {
     fun main(args: Array<String>) {
         println("Starting Hardware Monitoring Display...")
 
-        cpu = CPU
-        gpu = GPU
-
-        println("CPU found! (${cpu.name()} | ${cpu.temperature().toString().split(".")[0]}°C)")
-        println("GPU found! (${gpu.name()} | ${gpu.temperature().toString().split(".")[0]}°C)")
-
         WindowHandler.openWindow()
 
-        println("Hardware Monitoring Display started!")
+        Timer().schedule(object : TimerTask() {
+            override fun run() {
+
+                if (WindowHandler.screen is StartingScreen) {
+                    (WindowHandler.screen as StartingScreen).animateLoading( 20, 30)
+                }
+
+                println("Registering fonts...")
+
+                CustomFont.registerFonts().also {
+                    if (WindowHandler.screen is StartingScreen) {
+                        (WindowHandler.screen as StartingScreen).startingText = "loading.cpu"
+                        (WindowHandler.screen as StartingScreen).animateLoading( 45, 30)
+                    }
+                }
+
+                cpu = CPU
+                gpu = GPU
+
+                println("Searching for cpu...")
+
+                println("CPU found! (${cpu.name()} | ${cpu.temperature().toString().split(".")[0]}°C)").also {
+                    if (WindowHandler.screen is StartingScreen) {
+                        (WindowHandler.screen as StartingScreen).startingText = "loading.gpu"
+                        (WindowHandler.screen as StartingScreen).animateLoading( 79, 30)
+                    }
+                }
+
+                println("Searching for gpu...")
+
+                println("GPU found! (${gpu.name()} | ${gpu.temperature().toString().split(".")[0]}°C)").also {
+                    if (WindowHandler.screen is StartingScreen) {
+                        (WindowHandler.screen as StartingScreen).startingText = "loading.finished"
+                        (WindowHandler.screen as StartingScreen).animateLoading( 100, 30)
+                    }
+                }
+
+                println("Hardware Monitoring Display started!")
+            }
+        },1000)
     }
 
 }
