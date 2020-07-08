@@ -20,6 +20,8 @@ object LanguageTranslator {
                 return "Searching for GPU..."
             }else if(text == "loading.finished") {
                 return "Finished!"
+            }else if(text == "style.loading") {
+                return "Loading..."
             }
         }else if(language == "de") {
             if(text == "loading.config") {
@@ -32,6 +34,8 @@ object LanguageTranslator {
                 return "Suche nach GPU..."
             }else if(text == "loading.finished") {
                 return "Beendet!"
+            }else if(text == "style.loading") {
+                return "Lädt..."
             }
         }
         return "\"$text\" with language \"$language\" not found!"

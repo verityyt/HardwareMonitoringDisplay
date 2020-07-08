@@ -59,7 +59,7 @@ object HardwareMonitoringDisplay {
 
                 println("Searching for cpu...")
 
-                println("CPU found! (${cpu.name()} | ${cpu.temperature().toString().split(".")[0]}°C)").also {
+                println("CPU found! (${cpu.name()})").also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.gpu"
                         (WindowHandler.screen as StartingScreen).animateLoading( 79, 30)
@@ -68,7 +68,7 @@ object HardwareMonitoringDisplay {
 
                 println("Searching for gpu...")
 
-                println("GPU found! (${gpu.name()} | ${gpu.temperature().toString().split(".")[0]}°C)").also {
+                println("GPU found! (${gpu.name()})").also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.finished"
                         (WindowHandler.screen as StartingScreen).animateLoading( 100, 30)

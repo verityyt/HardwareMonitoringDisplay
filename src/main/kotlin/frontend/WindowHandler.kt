@@ -29,6 +29,11 @@ object WindowHandler {
      */
     lateinit var screen: Screen
 
+    /**
+     * Changable fps count of the window
+     */
+    var fps: Long = 60
+
     fun openWindow() {
         Thread {
 
@@ -37,13 +42,19 @@ object WindowHandler {
             component = object : JComponent() {
                 override fun paint(graphics: Graphics?) {
                     if (graphics != null) {
-                        (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                        (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+                        (graphics as Graphics2D).setRenderingHint(
+                            RenderingHints.KEY_ANTIALIASING,
+                            RenderingHints.VALUE_ANTIALIAS_ON
+                        )
+                        graphics.setRenderingHint(
+                            RenderingHints.KEY_RENDERING,
+                            RenderingHints.VALUE_RENDER_QUALITY
+                        )
 
                         graphics.color = Color.WHITE
                         graphics.fillRect(0, 0, 800, 480)
 
-                        screen.paint(graphics, graphics as Graphics2D, this)
+                        screen.paint(graphics, graphics, this)
                     }
                 }
             }
@@ -61,13 +72,13 @@ object WindowHandler {
                 }
 
                 override fun keyReleased(e: KeyEvent?) {
-                    if(e?.keyCode == 122) {
+                    if (e?.keyCode == 122) {
 
                         window.dispose()
-                        if(window.isUndecorated) {
+                        if (window.isUndecorated) {
                             window.isUndecorated = false
                             println("Switched to windowed mode")
-                        }else {
+                        } else {
                             window.isUndecorated = true
                             println("Switched to fullscreen mode")
                         }
@@ -87,7 +98,7 @@ object WindowHandler {
             window.isVisible = true
 
             while (true) {
-                Thread.sleep(1000 / 60)
+                Thread.sleep(1000 / fps)
                 window.repaint()
             }
         }.start()

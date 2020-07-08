@@ -14,6 +14,7 @@ object Configuration {
             val jsonObject = JSONObject()
             jsonObject.put("language", "en")
             jsonObject.put("style", "0")
+            jsonObject.put("update_delay_ms", "1000")
 
             val writer = file.writer()
             writer.write(jsonObject.toJSONString())
