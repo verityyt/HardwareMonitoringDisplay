@@ -2,15 +2,16 @@ package frontend
 
 import java.awt.*
 import java.io.File
-import javax.swing.Spring.width
 
 
 object CustomFont {
 
     var regular: Font? = null
+    var light: Font? = null
 
     fun registerFonts() {
         registerRegular()
+        registerLight()
 
         println("Registered Fonts!")
     }
@@ -20,6 +21,13 @@ object CustomFont {
             Font.createFont(Font.TRUETYPE_FONT, File(javaClass.getResource("/fonts/Product-Sans-Regular.ttf").toURI()))
         val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         ge.registerFont(regular)
+    }
+
+    fun registerLight() {
+        light =
+            Font.createFont(Font.TRUETYPE_FONT, File(javaClass.getResource("/fonts/Product-Sans-Light.ttf").toURI()))
+        val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
+        ge.registerFont(light)
     }
 
     fun drawCentredString(graphics: Graphics, rect: Rectangle, text: String, color: Color, font: Font) {

@@ -1,8 +1,10 @@
 package frontend.screens
 
+import backend.Configuration
 import frontend.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
+import frontend.WindowHandler
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -54,7 +56,14 @@ object StartingScreen : Screen() {
             Thread.sleep(sleep)
             startingPercentage = percent
             if (percent == 100) {
-                // Finished start
+                val style = Configuration.get("style").toInt()
+
+                if(style == 0) {
+                    WindowHandler.screen = CircleStyleScreen
+                }else {
+                    println("No style which number $style found!")
+                }
+
                 Thread.currentThread().stop()
             }
         }
