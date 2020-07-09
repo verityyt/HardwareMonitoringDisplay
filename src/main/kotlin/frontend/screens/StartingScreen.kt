@@ -5,7 +5,6 @@ import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
-import frontend.utils.ColorPalette
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -59,7 +58,7 @@ object StartingScreen : Screen() {
                 val style = Configuration.get("style").toInt()
 
                 if(style == 0) {
-                    WindowHandler.screen = CircleStyleScreen
+                    WindowHandler.screen = ReactiveCirclesStyleScreen
                 }else {
                     println("No style which number $style found!")
                 }

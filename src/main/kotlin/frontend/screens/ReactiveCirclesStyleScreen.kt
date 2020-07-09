@@ -8,7 +8,7 @@ import frontend.viewer.ReactiveCircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object CircleStyleScreen : Screen() {
+object ReactiveCirclesStyleScreen : Screen() {
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")
