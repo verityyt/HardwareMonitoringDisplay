@@ -1,7 +1,7 @@
 import backend.Configuration
 import backend.monitoring.CPU
 import backend.monitoring.GPU
-import frontend.CustomFont
+import frontend.utils.CustomFont
 import frontend.screens.StartingScreen
 import frontend.WindowHandler
 import java.util.*

@@ -1,4 +1,4 @@
-package frontend
+package frontend.utils
 
 import java.awt.*
 import java.io.File

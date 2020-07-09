@@ -1,7 +1,7 @@
 package frontend.screens
 
 import backend.Configuration
-import frontend.CustomFont
+import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
@@ -11,7 +11,6 @@ import java.awt.Graphics2D
 import java.awt.Rectangle
 import java.awt.image.ImageObserver
 import javax.imageio.ImageIO
-import kotlin.isInitialized as isInitialized1
 
 object StartingScreen : Screen() {
 
