@@ -24,9 +24,9 @@ object Configuration {
             jsonObject.put("language", "en")
             jsonObject.put("style", "0")
             jsonObject.put("update_delay_ms", "1000")
-            jsonObject.put("color_1", "#3867D6")
-            jsonObject.put("color_2", "#8854D0")
-            jsonObject.put("color_3", "#2ECC71")
+            jsonObject.put("color_cpu", "#3867D6")
+            jsonObject.put("color_gpu", "#8854D0")
+            jsonObject.put("color_ram", "#2ECC71")
             jsonObject.put("color_bg", "#FFFFFF")
 
             val writer = file.writer()

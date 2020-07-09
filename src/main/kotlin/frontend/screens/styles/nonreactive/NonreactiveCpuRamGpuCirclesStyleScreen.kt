@@ -37,17 +37,17 @@ object NonreactiveCpuRamGpuCirclesStyleScreen : Screen() {
         graphics.fillRect(0, 0, 800, 600)
 
         UICircles().paint(
-            graphics, 70, 200, 200, ColorPalette.COLOR_1, 5f, "CPU", 18f, Rectangle(70, 274, 200, 15),
+            graphics, 70, 200, 200, ColorPalette.COLOR_CPU, 5f, "CPU", 18f, Rectangle(70, 274, 200, 15),
             cpuTemperature, 34f, Rectangle(70, 297, 200, 25),
             180
         )
         UICircles().paint(
-            graphics, 300, 200, 200, ColorPalette.COLOR_3, 5f, "RAM", 18f, Rectangle(300, 274, 200, 15),
+            graphics, 300, 200, 200, ColorPalette.COLOR_RAM, 5f, "RAM", 18f, Rectangle(300, 274, 200, 15),
             ramLoad, 34f, Rectangle(300, 297, 200, 25),
             180
         )
         UICircles().paint(
-            graphics, 530, 200, 200, ColorPalette.COLOR_2, 5f, "GPU", 18f, Rectangle(530, 274, 200, 15),
+            graphics, 530, 200, 200, ColorPalette.COLOR_GPU, 5f, "GPU", 18f, Rectangle(530, 274, 200, 15),
             gpuTemperature, 34f, Rectangle(530, 297, 200, 25),
             180
         )

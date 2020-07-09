@@ -6,19 +6,19 @@ import java.awt.Color
 object ColorPalette {
 
     /**
-     * First color of theme
+     * CPU color of theme
      */
-    val COLOR_1 = Color.decode(Configuration.get("color_1"))
+    val COLOR_CPU = Color.decode(Configuration.get("color_cpu"))
 
     /**
-     * Second color of theme
+     * GPU color of theme
      */
-    val COLOR_2 = Color.decode(Configuration.get("color_2"))
+    val COLOR_GPU = Color.decode(Configuration.get("color_gpu"))
 
     /**
-     * Third color of theme
+     * RAM color of theme
      */
-    val COLOR_3 = Color.decode(Configuration.get("color_3"))
+    val COLOR_RAM = Color.decode(Configuration.get("color_ram"))
 
     /**
      * Background color of theme
