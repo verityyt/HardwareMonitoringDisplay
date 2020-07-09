@@ -8,7 +8,7 @@ import frontend.viewer.UICircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object ReactiveCpuGPuCirclesStyleScreen : Screen() {
+object ReactiveCpuGpuCirclesStyleScreen : Screen() {
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")
@@ -40,14 +40,12 @@ object ReactiveCpuGPuCirclesStyleScreen : Screen() {
         graphics.fillRect(0, 0, 800, 600)
 
         UICircles().paint(
-            graphics, 90, 175, 250, ColorPalette.COLOR_1, 7f, "CPU", 24f,
-            cpuTemperature, 45f,
-            cpuArcCalc
+            graphics, 90, 175, 250, ColorPalette.COLOR_1, 7f, "CPU", 24f, Rectangle(90, 175 + 91, 250, 19),
+            cpuTemperature, 45f, Rectangle(90, 180 + 120, 250, 19), cpuArcCalc
         )
         UICircles().paint(
-            graphics, 460, 175, 250, ColorPalette.COLOR_2, 7f, "GPU", 24f,
-            gpuTemperature, 45f,
-            gpuArcCalc
+            graphics, 460, 175, 250, ColorPalette.COLOR_2, 7f, "GPU", 24f, Rectangle(460, 175 + 91, 250, 19),
+            gpuTemperature, 45f, Rectangle(460, 180 + 120, 250, 19), gpuArcCalc
         )
 
     }

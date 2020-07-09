@@ -15,6 +15,10 @@ object ColorPalette {
      */
     val COLOR_2 = Color.decode(Configuration.get("color_2"))
 
+    /**
+     * Third color of theme
+     */
+    val COLOR_3 = Color.decode(Configuration.get("color_3"))
 
     /**
      * Background color of theme

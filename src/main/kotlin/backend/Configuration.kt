@@ -13,8 +13,9 @@ object Configuration {
     /**
      *
      * Styles:
-     *   0: ReactiveCpuGPuCirclesStyleScreen
-     *   1: NonreactiveCpuGPuCirclesStyleScreen
+     *   0: ReactiveCpuGpuCirclesStyleScreen
+     *   1: NonreactiveCpuGpuCirclesStyleScreen
+     *   2: ReactiveCpuRamGpuCirclesStyleScreen
      *
      */
     fun create() {
@@ -25,6 +26,7 @@ object Configuration {
             jsonObject.put("update_delay_ms", "1000")
             jsonObject.put("color_1", "#3867D6")
             jsonObject.put("color_2", "#8854D0")
+            jsonObject.put("color_3", "#2ECC71")
             jsonObject.put("color_bg", "#FFFFFF")
 
             val writer = file.writer()

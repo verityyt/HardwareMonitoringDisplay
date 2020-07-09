@@ -5,9 +5,9 @@ import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
-import frontend.screens.styles.NonreactiveCpuGPuCirclesStyleScreen
-import frontend.screens.styles.ReactiveCpuGPuCirclesStyleScreen
-import frontend.screens.styles.ReactiveCpuRamGPuCirclesStyleScreen
+import frontend.screens.styles.NonreactiveCpuGpuCirclesStyleScreen
+import frontend.screens.styles.ReactiveCpuGpuCirclesStyleScreen
+import frontend.screens.styles.ReactiveCpuRamGpuCirclesStyleScreen
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -61,12 +61,12 @@ object StartingScreen : Screen() {
                 val style = Configuration.get("style").toInt()
 
                 if(style == 0) {
-                    WindowHandler.screen = ReactiveCpuGPuCirclesStyleScreen
+                    WindowHandler.screen = ReactiveCpuGpuCirclesStyleScreen
                 }else if(style == 1) {
                     WindowHandler.screen =
-                        NonreactiveCpuGPuCirclesStyleScreen
+                        NonreactiveCpuGpuCirclesStyleScreen
                 }else if(style == 2) {
-                    WindowHandler.screen = ReactiveCpuRamGPuCirclesStyleScreen
+                    WindowHandler.screen = ReactiveCpuRamGpuCirclesStyleScreen
                 }else {
                     println("No style with number $style found!")
                 }

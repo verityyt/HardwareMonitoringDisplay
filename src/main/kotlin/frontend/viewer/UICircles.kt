@@ -15,8 +15,10 @@ class UICircles {
         stroke: Float,
         title: String,
         titleSize: Float,
+        titleRect: Rectangle,
         value: String,
         valueSize: Float,
+        valueRect: Rectangle,
         arcCalc: Int
     ) {
 
@@ -26,14 +28,14 @@ class UICircles {
 
         if (CustomFont.light != null) {
             CustomFont.drawCentredString(
-                graphics, Rectangle(x, y + 91, diameter, 19), title, ColorPalette.COLOR_1,
+                graphics, titleRect, title, color,
                 CustomFont.light?.deriveFont(titleSize)!!
             )
         }
 
         if (CustomFont.regular != null) {
             CustomFont.drawCentredString(
-                graphics, Rectangle(x, y+120, diameter, 33), value, Color.BLACK,
+                graphics, valueRect, value, Color.BLACK,
                 CustomFont.regular?.deriveFont(valueSize)!!
             )
         }
