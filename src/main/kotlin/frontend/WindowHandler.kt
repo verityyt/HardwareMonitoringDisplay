@@ -1,8 +1,7 @@
 package frontend
 
-import frontend.screens.CircleStyleScreen
 import frontend.screens.StartingScreen
-import javafx.scene.shape.Circle
+import frontend.utils.ColorPalette
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -43,21 +42,21 @@ object WindowHandler {
 
             component = object : JComponent() {
                 override fun paint(graphics: Graphics?) {
-                    if (graphics != null) {
-                        (graphics as Graphics2D).setRenderingHint(
-                            RenderingHints.KEY_ANTIALIASING,
-                            RenderingHints.VALUE_ANTIALIAS_ON
-                        )
-                        graphics.setRenderingHint(
-                            RenderingHints.KEY_RENDERING,
-                            RenderingHints.VALUE_RENDER_QUALITY
-                        )
+                        if (graphics != null) {
+                            (graphics as Graphics2D).setRenderingHint(
+                                RenderingHints.KEY_ANTIALIASING,
+                                RenderingHints.VALUE_ANTIALIAS_ON
+                            )
+                            graphics.setRenderingHint(
+                                RenderingHints.KEY_RENDERING,
+                                RenderingHints.VALUE_RENDER_QUALITY
+                            )
 
-                        graphics.color = Color.WHITE
-                        graphics.fillRect(0, 0, 800, 600)
+                            graphics.color = Color.WHITE
+                            graphics.fillRect(0, 0, 800, 600)
 
-                        screen.paint(graphics, graphics, this)
-                    }
+                            screen.paint(graphics, graphics, this)
+                        }
                 }
             }
 

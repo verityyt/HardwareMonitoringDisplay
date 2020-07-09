@@ -5,6 +5,7 @@ import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
+import frontend.utils.ColorPalette
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D

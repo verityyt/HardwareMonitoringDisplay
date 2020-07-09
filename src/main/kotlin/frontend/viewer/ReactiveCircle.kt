@@ -1,6 +1,5 @@
 package frontend.viewer
 
-import frontend.screens.CircleStyleScreen
 import frontend.utils.ColorPalette
 import frontend.utils.CustomFont
 import java.awt.*
@@ -25,7 +24,7 @@ class ReactiveCircle {
 
         if (CustomFont.light != null) {
             CustomFont.drawCentredString(
-                graphics, Rectangle(x, y + 91, diameter, 19), title, ColorPalette.FIRST_ACCENT,
+                graphics, Rectangle(x, y + 91, diameter, 19), title, ColorPalette.COLOR_1,
                 CustomFont.light?.deriveFont(24f)!!
             )
         }

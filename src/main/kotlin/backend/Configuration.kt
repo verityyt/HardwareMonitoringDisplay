@@ -15,8 +15,9 @@ object Configuration {
             jsonObject.put("language", "en")
             jsonObject.put("style", "0")
             jsonObject.put("update_delay_ms", "1000")
-            jsonObject.put("accent_color_1", "#3867D6")
-            jsonObject.put("accent_color_2", "#8854D0")
+            jsonObject.put("color_1", "#3867D6")
+            jsonObject.put("color_2", "#8854D0")
+            jsonObject.put("color_bg", "#FFFFFF")
 
             val writer = file.writer()
             writer.write(jsonObject.toJSONString())

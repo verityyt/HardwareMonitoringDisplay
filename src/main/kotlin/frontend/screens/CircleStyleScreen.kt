@@ -2,7 +2,6 @@ package frontend.screens
 
 import backend.Configuration
 import frontend.utils.ColorPalette
-import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.viewer.ReactiveCircle
@@ -37,9 +36,11 @@ object CircleStyleScreen : Screen() {
     }
 
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
+        graphics.color = ColorPalette.COLOR_BG
+        graphics.fillRect(0,0,800,600)
 
-        ReactiveCircle().paint(graphics,90,175,250,ColorPalette.FIRST_ACCENT,7f,"CPU", cpuTemperature, cpuArcCalc)
-        ReactiveCircle().paint(graphics,460,175,250,ColorPalette.SECOND_ACCENT,7f,"GPU", gpuTemperature, gpuArcCalc)
+        ReactiveCircle().paint(graphics,90,175,250,ColorPalette.COLOR_1,7f,"CPU", cpuTemperature, cpuArcCalc)
+        ReactiveCircle().paint(graphics,460,175,250,ColorPalette.COLOR_2,7f,"GPU", gpuTemperature, gpuArcCalc)
 
     }
 

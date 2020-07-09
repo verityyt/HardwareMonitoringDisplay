@@ -6,13 +6,18 @@ import java.awt.Color
 object ColorPalette {
 
     /**
-     * First accent color of theme
+     * First color of theme
      */
-    val FIRST_ACCENT = Color.decode(Configuration.get("accent_color_1"))
+    val COLOR_1 = Color.decode(Configuration.get("color_1"))
 
     /**
-     * Second accent color of theme
+     * Second color of theme
      */
-    val SECOND_ACCENT = Color.decode(Configuration.get("accent_color_2"))
+    val COLOR_2 = Color.decode(Configuration.get("color_2"))
 
+
+    /**
+     * Background color of theme
+     */
+    val COLOR_BG = Color.decode(Configuration.get("color_bg"))
 }
