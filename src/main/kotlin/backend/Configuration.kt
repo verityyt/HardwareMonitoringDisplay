@@ -13,7 +13,8 @@ object Configuration {
     /**
      *
      * Styles:
-     *   0: CircleStyleScreen
+     *   0: ReactiveCpuGPuCirclesStyleScreen
+     *   1: NonreactiveCpuGPuCirclesStyleScreen
      *
      */
     fun create() {

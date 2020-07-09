@@ -4,7 +4,7 @@ import frontend.utils.ColorPalette
 import frontend.utils.CustomFont
 import java.awt.*
 
-class ReactiveCircles {
+class UICircles {
 
     fun paint(
         graphics: Graphics,
@@ -14,7 +14,9 @@ class ReactiveCircles {
         color: Color,
         stroke: Float,
         title: String,
+        titleSize: Float,
         value: String,
+        valueSize: Float,
         arcCalc: Int
     ) {
 
@@ -25,14 +27,14 @@ class ReactiveCircles {
         if (CustomFont.light != null) {
             CustomFont.drawCentredString(
                 graphics, Rectangle(x, y + 91, diameter, 19), title, ColorPalette.COLOR_1,
-                CustomFont.light?.deriveFont(24f)!!
+                CustomFont.light?.deriveFont(titleSize)!!
             )
         }
 
         if (CustomFont.regular != null) {
             CustomFont.drawCentredString(
                 graphics, Rectangle(x, y+120, diameter, 33), value, Color.BLACK,
-                CustomFont.regular?.deriveFont(45f)!!
+                CustomFont.regular?.deriveFont(valueSize)!!
             )
         }
 
