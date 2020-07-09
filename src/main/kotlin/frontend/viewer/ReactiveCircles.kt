@@ -4,7 +4,7 @@ import frontend.utils.ColorPalette
 import frontend.utils.CustomFont
 import java.awt.*
 
-class ReactiveCircle {
+class ReactiveCircles {
 
     fun paint(
         graphics: Graphics,

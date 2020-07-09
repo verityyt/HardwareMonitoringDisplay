@@ -3,12 +3,19 @@ package backend
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.File
+import kotlin.system.exitProcess
 
 
 object Configuration {
 
     val file = File("config.json")
 
+    /**
+     *
+     * Styles:
+     *   0: CircleStyleScreen
+     *
+     */
     fun create() {
         if (!file.exists()) {
             val jsonObject = JSONObject()
@@ -24,6 +31,7 @@ object Configuration {
             writer.flush()
             writer.close()
 
+            exitProcess(0)
         }
     }
 

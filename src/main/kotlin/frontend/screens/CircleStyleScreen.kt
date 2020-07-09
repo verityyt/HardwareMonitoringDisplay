@@ -4,7 +4,7 @@ import backend.Configuration
 import frontend.utils.ColorPalette
 import frontend.LanguageTranslator
 import frontend.Screen
-import frontend.viewer.ReactiveCircle
+import frontend.viewer.ReactiveCircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
@@ -39,8 +39,8 @@ object CircleStyleScreen : Screen() {
         graphics.color = ColorPalette.COLOR_BG
         graphics.fillRect(0,0,800,600)
 
-        ReactiveCircle().paint(graphics,90,175,250,ColorPalette.COLOR_1,7f,"CPU", cpuTemperature, cpuArcCalc)
-        ReactiveCircle().paint(graphics,460,175,250,ColorPalette.COLOR_2,7f,"GPU", gpuTemperature, gpuArcCalc)
+        ReactiveCircles().paint(graphics,90,175,250,ColorPalette.COLOR_1,7f,"CPU", cpuTemperature, cpuArcCalc)
+        ReactiveCircles().paint(graphics,460,175,250,ColorPalette.COLOR_2,7f,"GPU", gpuTemperature, gpuArcCalc)
 
     }
 
