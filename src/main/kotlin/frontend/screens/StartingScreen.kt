@@ -5,9 +5,10 @@ import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
-import frontend.screens.styles.NonreactiveCpuGpuCirclesStyleScreen
-import frontend.screens.styles.ReactiveCpuGpuCirclesStyleScreen
-import frontend.screens.styles.ReactiveCpuRamGpuCirclesStyleScreen
+import frontend.screens.styles.nonreactive.NonreactiveCpuGpuCirclesStyleScreen
+import frontend.screens.styles.reactive.ReactiveCpuRamGpuCirclesStyleScreen
+import frontend.screens.styles.reactive.ReactiveCpuGpuCirclesStyleScreen
+import frontend.screens.styles.nonreactive.NonreactiveCpuRamGpuCirclesStyleScreen
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -61,14 +62,23 @@ object StartingScreen : Screen() {
                 val style = Configuration.get("style").toInt()
 
                 if(style == 0) {
-                    WindowHandler.screen = ReactiveCpuGpuCirclesStyleScreen
+                    WindowHandler.screen =
+                        ReactiveCpuGpuCirclesStyleScreen
                 }else if(style == 1) {
                     WindowHandler.screen =
                         NonreactiveCpuGpuCirclesStyleScreen
                 }else if(style == 2) {
-                    WindowHandler.screen = ReactiveCpuRamGpuCirclesStyleScreen
+                    WindowHandler.screen =
+                        ReactiveCpuRamGpuCirclesStyleScreen
+                }else if(style == 3) {
+                    WindowHandler.screen =
+                        NonreactiveCpuRamGpuCirclesStyleScreen
                 }else {
                     println("No style with number $style found!")
+                    if (WindowHandler.screen is StartingScreen) {
+                        (WindowHandler.screen as StartingScreen).startingText = "style.unknown.$style"
+                        (WindowHandler.screen as StartingScreen).animateLoading( 79, 30)
+                    }
                 }
 
                 Thread.currentThread().stop()

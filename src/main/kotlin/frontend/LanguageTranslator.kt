@@ -22,6 +22,8 @@ object LanguageTranslator {
                 return "Finished!"
             }else if(text == "style.loading") {
                 return "Loading..."
+            }else if(text.startsWith("style.unknown")) {
+                return "Style with number ${text.split(".")[2]} not found!"
             }
         }else if(language == "de") {
             if(text == "loading.config") {
@@ -36,6 +38,8 @@ object LanguageTranslator {
                 return "Beendet!"
             }else if(text == "style.loading") {
                 return "Lädt..."
+            }else if(text.startsWith("style.unknown")) {
+                return "Stil mit der Nummer ${text.split(".")[2]} nicht gefunden!"
             }
         }
         return "\"$text\" with language \"$language\" not found!"

@@ -1,4 +1,4 @@
-package frontend.screens.styles
+package frontend.screens.styles.nonreactive
 
 import backend.Configuration
 import frontend.utils.ColorPalette
@@ -8,27 +8,24 @@ import frontend.viewer.UICircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object ReactiveCpuGpuCirclesStyleScreen : Screen() {
+object NonreactiveCpuRamGpuCirclesStyleScreen : Screen() {
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")
-    private var cpuArcCalc: Int = 0
-    private var gpuArcCalc: Int = 0
+    private var ramLoad: String = LanguageTranslator.get("style.loading")
 
     init {
         Thread {
             cpuTemperature = "${HardwareMonitoringDisplay.cpu.temperature().toString().split(".")[0]}°C"
-            cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
             gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
-            gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
+            ramLoad = "${HardwareMonitoringDisplay.ram.usedRam()}mb"
 
             val delay = Configuration.get("update_delay_ms").toLong()
 
             while (true) {
                 cpuTemperature = "${HardwareMonitoringDisplay.cpu.temperature().toString().split(".")[0]}°C"
-                cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
                 gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
-                gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
+                ramLoad = "${HardwareMonitoringDisplay.ram.usedRam()}mb"
 
                 Thread.sleep(delay)
             }
@@ -40,12 +37,19 @@ object ReactiveCpuGpuCirclesStyleScreen : Screen() {
         graphics.fillRect(0, 0, 800, 600)
 
         UICircles().paint(
-            graphics, 90, 175, 250, ColorPalette.COLOR_1, 7f, "CPU", 24f, Rectangle(90, 175 + 91, 250, 19),
-            cpuTemperature, 45f, Rectangle(90, 180 + 120, 250, 19), cpuArcCalc
+            graphics, 70, 200, 200, ColorPalette.COLOR_1, 5f, "CPU", 18f, Rectangle(70, 274, 200, 15),
+            cpuTemperature, 34f, Rectangle(70, 297, 200, 25),
+            180
         )
         UICircles().paint(
-            graphics, 460, 175, 250, ColorPalette.COLOR_2, 7f, "GPU", 24f, Rectangle(460, 175 + 91, 250, 19),
-            gpuTemperature, 45f, Rectangle(460, 180 + 120, 250, 19), gpuArcCalc
+            graphics, 300, 200, 200, ColorPalette.COLOR_3, 5f, "RAM", 18f, Rectangle(300, 274, 200, 15),
+            ramLoad, 34f, Rectangle(300, 297, 200, 25),
+            180
+        )
+        UICircles().paint(
+            graphics, 530, 200, 200, ColorPalette.COLOR_2, 5f, "GPU", 18f, Rectangle(530, 274, 200, 15),
+            gpuTemperature, 34f, Rectangle(530, 297, 200, 25),
+            180
         )
 
     }

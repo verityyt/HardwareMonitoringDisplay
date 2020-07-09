@@ -1,4 +1,4 @@
-package frontend.screens.styles
+package frontend.screens.styles.nonreactive
 
 import backend.Configuration
 import frontend.utils.ColorPalette

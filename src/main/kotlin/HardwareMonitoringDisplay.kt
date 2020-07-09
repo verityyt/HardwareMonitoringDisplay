@@ -1,6 +1,7 @@
 import backend.Configuration
 import backend.monitoring.CPU
 import backend.monitoring.GPU
+import backend.monitoring.RAM
 import frontend.utils.CustomFont
 import frontend.screens.StartingScreen
 import frontend.WindowHandler
@@ -17,6 +18,11 @@ object HardwareMonitoringDisplay {
      * The GPU of the current PC
      */
     lateinit var gpu: GPU
+
+    /**
+     * The RAM of the current PC
+     */
+    lateinit var ram: RAM
 
     /**
      * Version of the Application
@@ -56,6 +62,9 @@ object HardwareMonitoringDisplay {
 
                 cpu = CPU
                 gpu = GPU
+                ram = RAM
+
+                println("RAM found! (${ram.maxRam()}mb)")
 
                 println("Searching for cpu...")
 
