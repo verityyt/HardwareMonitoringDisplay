@@ -47,9 +47,7 @@ tasks {
 
 tasks.register("export") {
     group = "build"
-    description = "Cleans the project and exports the project as jar file"
+    description = "Exports the project as jar file"
 
-    dependsOn("clean")
     dependsOn("jar")
-    tasks.findByName("jar")?.mustRunAfter("clean")
 }

@@ -2,6 +2,9 @@ package frontend.utils
 
 import java.awt.*
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
 
 
 object CustomFont {
@@ -16,16 +19,17 @@ object CustomFont {
         println("Registered Fonts!")
     }
 
+
     fun registerRegular() {
         regular =
-            Font.createFont(Font.TRUETYPE_FONT, File(javaClass.getResource("/fonts/Product-Sans-Regular.ttf").toURI()))
+            Font.createFont(Font.TRUETYPE_FONT, File("resources/fonts/Product-Sans-Regular.ttf"))
         val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         ge.registerFont(regular)
     }
 
     fun registerLight() {
         light =
-            Font.createFont(Font.TRUETYPE_FONT, File(javaClass.getResource("/fonts/Product-Sans-Light.ttf").toURI()))
+            Font.createFont(Font.TRUETYPE_FONT, File("resources/fonts/Product-Sans-Light.ttf"))
         val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         ge.registerFont(light)
     }

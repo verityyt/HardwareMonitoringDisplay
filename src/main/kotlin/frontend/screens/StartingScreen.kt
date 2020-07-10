@@ -14,6 +14,7 @@ import java.awt.Graphics
 import java.awt.Graphics2D
 import java.awt.Rectangle
 import java.awt.image.ImageObserver
+import java.io.File
 import javax.imageio.ImageIO
 
 object StartingScreen : Screen() {
@@ -30,7 +31,7 @@ object StartingScreen : Screen() {
 
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
 
-        graphics.drawImage(ImageIO.read(javaClass.getResource("/images/Rocket.png")),337,198,125,125, observer)
+        graphics.drawImage(ImageIO.read(File("resources/images/Rocket.png")),337,198,125,125, observer)
 
         graphics.color = Color.BLACK
         graphics.fillRect(149, 366, 502, 8)

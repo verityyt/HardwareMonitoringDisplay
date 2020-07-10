@@ -8,6 +8,7 @@ import java.awt.Graphics2D
 import java.awt.RenderingHints
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
+import java.io.File
 import javax.imageio.ImageIO
 import javax.swing.JComponent
 import javax.swing.JFrame
@@ -92,7 +93,7 @@ object WindowHandler {
             window.isResizable = false
             window.isAlwaysOnTop = true
             window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x600)"
-            window.iconImage = ImageIO.read(javaClass.getResource("/images/WindowIcon.png"))
+            window.iconImage = ImageIO.read(File("resources/images/WindowIcon.png"))
 
             window.isVisible = true
 
