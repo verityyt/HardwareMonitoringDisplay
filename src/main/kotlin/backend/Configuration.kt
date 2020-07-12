@@ -27,6 +27,7 @@ object Configuration {
             jsonObject.put("color_cpu", "#3867D6")
             jsonObject.put("color_gpu", "#8854D0")
             jsonObject.put("color_ram", "#2ECC71")
+            jsonObject.put("color_text", "#000000")
             jsonObject.put("color_bg", "#FFFFFF")
 
             val writer = file.writer()

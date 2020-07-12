@@ -62,6 +62,8 @@ object StartingScreen : Screen() {
             if (percent == 100) {
                 val style = Configuration.get("style").toInt()
 
+                WindowHandler.fps = 24
+
                 if(style == 0) {
                     WindowHandler.screen =
                         ReactiveCpuGpuCirclesStyleScreen

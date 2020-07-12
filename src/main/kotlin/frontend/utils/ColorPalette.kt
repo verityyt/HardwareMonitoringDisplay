@@ -21,6 +21,11 @@ object ColorPalette {
     val COLOR_RAM = Color.decode(Configuration.get("color_ram"))
 
     /**
+     * Text color of theme
+     */
+    val COLOR_TEXT = Color.decode(Configuration.get("color_text"))
+
+    /**
      * Background color of theme
      */
     val COLOR_BG = Color.decode(Configuration.get("color_bg"))

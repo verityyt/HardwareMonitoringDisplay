@@ -2,9 +2,9 @@ import backend.Configuration
 import backend.monitoring.CPU
 import backend.monitoring.GPU
 import backend.monitoring.RAM
-import frontend.utils.CustomFont
-import frontend.screens.StartingScreen
 import frontend.WindowHandler
+import frontend.screens.StartingScreen
+import frontend.utils.CustomFont
 import java.util.*
 
 object HardwareMonitoringDisplay {
@@ -87,6 +87,7 @@ object HardwareMonitoringDisplay {
                 println("Hardware Monitoring Display started!")
             }
         },1000)
+
     }
 
 }

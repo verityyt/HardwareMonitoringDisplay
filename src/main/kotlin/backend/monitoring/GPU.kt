@@ -11,6 +11,7 @@ object GPU {
      * !!! Takes 1000ms to return !!!
      */
     fun temperature(): Double? {
+
         val gpus = JSensors.get.components().gpus
 
         if (gpus != null) {

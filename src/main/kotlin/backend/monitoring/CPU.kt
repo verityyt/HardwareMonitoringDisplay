@@ -11,6 +11,7 @@ object CPU {
      * !!! Takes 1000ms to return !!!
      */
     fun temperature(): Double? {
+
         val cpus = JSensors.get.components().cpus
 
         if (cpus != null) {

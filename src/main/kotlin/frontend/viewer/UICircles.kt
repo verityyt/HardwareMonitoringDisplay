@@ -35,7 +35,7 @@ class UICircles {
 
         if (CustomFont.regular != null) {
             CustomFont.drawCentredString(
-                graphics, valueRect, value, Color.BLACK,
+                graphics, valueRect, value, ColorPalette.COLOR_TEXT,
                 CustomFont.regular?.deriveFont(valueSize)!!
             )
         }
