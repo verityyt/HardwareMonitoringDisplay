@@ -1,5 +1,6 @@
 import backend.Configuration
 import backend.monitoring.CPU
+import backend.monitoring.DRIVE
 import backend.monitoring.GPU
 import backend.monitoring.RAM
 import frontend.WindowHandler
@@ -25,6 +26,16 @@ object HardwareMonitoringDisplay {
     lateinit var ram: RAM
 
     /**
+     * The System-DRIVE of the current PC
+     */
+    lateinit var systemDrive: DRIVE
+
+    /**
+     * The DRIVE of the current PC
+     */
+    lateinit var drive: DRIVE
+
+    /**
      * Version of the Application
      */
     val version = "v0.1.4"
@@ -39,7 +50,7 @@ object HardwareMonitoringDisplay {
             override fun run() {
 
                 if (WindowHandler.screen is StartingScreen) {
-                    (WindowHandler.screen as StartingScreen).animateLoading( 20, 30)
+                    (WindowHandler.screen as StartingScreen).animateLoading(20, 30)
                 }
 
                 println("Creating/Loading configuration")
@@ -47,7 +58,7 @@ object HardwareMonitoringDisplay {
                 Configuration.create().also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.config"
-                        (WindowHandler.screen as StartingScreen).animateLoading( 35, 30)
+                        (WindowHandler.screen as StartingScreen).animateLoading(35, 30)
                     }
                 }
 
@@ -56,13 +67,15 @@ object HardwareMonitoringDisplay {
                 CustomFont.registerFonts().also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.cpu"
-                        (WindowHandler.screen as StartingScreen).animateLoading( 45, 30)
+                        (WindowHandler.screen as StartingScreen).animateLoading(45, 30)
                     }
                 }
 
                 cpu = CPU
                 gpu = GPU
                 ram = RAM
+                systemDrive = DRIVE
+                drive = DRIVE
 
                 println("RAM found! (${ram.maxRam()}mb)")
 
@@ -71,7 +84,7 @@ object HardwareMonitoringDisplay {
                 println("CPU found! (${cpu.name()})").also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.gpu"
-                        (WindowHandler.screen as StartingScreen).animateLoading( 79, 30)
+                        (WindowHandler.screen as StartingScreen).animateLoading(60, 30)
                     }
                 }
 
@@ -80,13 +93,22 @@ object HardwareMonitoringDisplay {
                 println("GPU found! (${gpu.name()})").also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.finished"
-                        (WindowHandler.screen as StartingScreen).animateLoading( 100, 30)
+                        (WindowHandler.screen as StartingScreen).animateLoading(75, 30)
+                    }
+                }
+
+                println("Searching for drives...")
+
+                systemDrive.info().also {
+                    if (WindowHandler.screen is StartingScreen) {
+                        (WindowHandler.screen as StartingScreen).startingText = "loading.finished"
+                        (WindowHandler.screen as StartingScreen).animateLoading(100, 30)
                     }
                 }
 
                 println("Hardware Monitoring Display started!")
             }
-        },1000)
+        }, 1000)
 
     }
 
