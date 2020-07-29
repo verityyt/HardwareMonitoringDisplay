@@ -55,6 +55,13 @@ object StartingScreen : Screen() {
             CustomFont.regular?.deriveFont(16f)!!
         )
 
+        graphics.font = CustomFont.regular!!.deriveFont(12f)
+        graphics.color = Color.decode("#8F8F8F")
+        graphics.drawString("Designed and developed by",10,560)
+
+        graphics.color = Color.decode("#585858")
+        graphics.drawString("verity",157,560)
+
     }
 
     fun animateLoading(target: Int, sleep: Long) {
