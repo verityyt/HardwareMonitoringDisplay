@@ -9,6 +9,7 @@ import frontend.screens.styles.nonreactive.StyleOneScreen
 import frontend.screens.styles.reactive.StyleTwoScreen
 import frontend.screens.styles.reactive.StyleZeroScreen
 import frontend.screens.styles.nonreactive.StyleThreeScreen
+import frontend.screens.styles.reactive.StyleFourScreen
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -76,6 +77,10 @@ object StartingScreen : Screen() {
                 }else if(style == 3) {
                     WindowHandler.screen =
                         StyleThreeScreen
+                }else if(style == 4) {
+                    WindowHandler.changeWindowSize(600,400)
+                    WindowHandler.screen =
+                        StyleFourScreen
                 }else {
                     println("No style with number $style found!")
                     if (WindowHandler.screen is StartingScreen) {

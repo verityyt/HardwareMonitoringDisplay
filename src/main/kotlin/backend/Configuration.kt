@@ -29,6 +29,8 @@ object Configuration {
             jsonObject.put("color_cpu", "#3867D6")
             jsonObject.put("color_gpu", "#8854D0")
             jsonObject.put("color_ram", "#2ECC71")
+            jsonObject.put("color_ssd", "#E67E22")
+            jsonObject.put("color_hdd", "#F1C40F")
             jsonObject.put("color_text", "#000000")
             jsonObject.put("color_bg", "#FFFFFF")
 

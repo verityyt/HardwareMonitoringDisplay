@@ -21,6 +21,16 @@ object ColorPalette {
     val COLOR_RAM = Color.decode(Configuration.get("color_ram"))
 
     /**
+     * SSD color of theme
+     */
+    val COLOR_SSD = Color.decode(Configuration.get("color_ssd"))
+
+    /**
+     * HDD color of theme
+     */
+    val COLOR_HDD = Color.decode(Configuration.get("color_hdd"))
+
+    /**
      * Text color of theme
      */
     val COLOR_TEXT = Color.decode(Configuration.get("color_text"))

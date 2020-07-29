@@ -92,7 +92,7 @@ object HardwareMonitoringDisplay {
 
                 println("GPU found! (${gpu.name()})").also {
                     if (WindowHandler.screen is StartingScreen) {
-                        (WindowHandler.screen as StartingScreen).startingText = "loading.finished"
+                        (WindowHandler.screen as StartingScreen).startingText = "loading.drives"
                         (WindowHandler.screen as StartingScreen).animateLoading(75, 30)
                     }
                 }

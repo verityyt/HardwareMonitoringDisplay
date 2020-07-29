@@ -1,7 +1,6 @@
 package frontend
 
 import frontend.screens.StartingScreen
-import frontend.utils.ColorPalette
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -43,19 +42,37 @@ object WindowHandler {
 
             component = object : JComponent() {
                 override fun paint(graphics: Graphics?) {
-                        if (graphics != null) {
-                            (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY)
-                            (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
-                            (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
-                            (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE)
-                            (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR)
-                            (graphics as Graphics2D).setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON)
+                    if (graphics != null) {
+                        (graphics as Graphics2D).setRenderingHint(
+                            RenderingHints.KEY_RENDERING,
+                            RenderingHints.VALUE_RENDER_QUALITY
+                        )
+                        graphics.setRenderingHint(
+                            RenderingHints.KEY_ANTIALIASING,
+                            RenderingHints.VALUE_ANTIALIAS_ON
+                        )
+                        graphics.setRenderingHint(
+                            RenderingHints.KEY_TEXT_ANTIALIASING,
+                            RenderingHints.VALUE_TEXT_ANTIALIAS_ON
+                        )
+                        graphics.setRenderingHint(
+                            RenderingHints.KEY_STROKE_CONTROL,
+                            RenderingHints.VALUE_STROKE_NORMALIZE
+                        )
+                        graphics.setRenderingHint(
+                            RenderingHints.KEY_INTERPOLATION,
+                            RenderingHints.VALUE_INTERPOLATION_BILINEAR
+                        )
+                        graphics.setRenderingHint(
+                            RenderingHints.KEY_FRACTIONALMETRICS,
+                            RenderingHints.VALUE_FRACTIONALMETRICS_ON
+                        )
 
-                            graphics.color = Color.WHITE
-                            graphics.fillRect(0, 0, 800, 600)
+                        graphics.color = Color.WHITE
+                        graphics.fillRect(0, 0, 800, 600)
 
-                            screen.paint(graphics, graphics, this)
-                        }
+                        screen.paint(graphics, graphics, this)
+                    }
                 }
             }
 
@@ -73,8 +90,8 @@ object WindowHandler {
 
                 override fun keyReleased(e: KeyEvent?) {
                     if (e?.keyCode == 122) {
-
                         window.dispose()
+
                         if (window.isUndecorated) {
                             window.isUndecorated = false
                             window.isAlwaysOnTop = false
@@ -104,6 +121,15 @@ object WindowHandler {
                 window.repaint()
             }
         }.start()
+    }
+
+    fun changeWindowSize(width: Int, height: Int) {
+        window.dispose()
+
+        window.setSize(width, height)
+        window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (${width}x${height})"
+
+        window.isVisible = true
     }
 
 }

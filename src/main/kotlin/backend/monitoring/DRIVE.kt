@@ -53,7 +53,7 @@ object DRIVE {
                 this.driveNames.add(drive.name)
             }
         }
-        println("DRIVES found! (${this.driveNames.joinToString()})")
+        println("Drives found! (${this.driveNames.joinToString()})")
     }
 
 }
