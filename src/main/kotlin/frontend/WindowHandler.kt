@@ -112,7 +112,7 @@ object WindowHandler {
             window.isResizable = false
             window.isAlwaysOnTop = false
             window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x600)"
-            window.iconImage = ImageIO.read(File("resources/images/WindowIcon.png"))
+            window.iconImage = ImageIO.read(File("files/images/WindowIcon.png"))
 
             window.isVisible = true
 

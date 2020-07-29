@@ -33,7 +33,7 @@ object StartingScreen : Screen() {
 
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
 
-        graphics.drawImage(ImageIO.read(File("resources/images/Rocket.png")),337,198,125,125, observer)
+        graphics.drawImage(ImageIO.read(File("files/images/Rocket.png")),337,198,125,125, observer)
 
         graphics.color = Color.BLACK
         graphics.fillRect(149, 366, 502, 8)

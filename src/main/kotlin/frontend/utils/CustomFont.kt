@@ -22,14 +22,14 @@ object CustomFont {
 
     fun registerRegular() {
         regular =
-            Font.createFont(Font.TRUETYPE_FONT, File("resources/fonts/Product-Sans-Regular.ttf"))
+            Font.createFont(Font.TRUETYPE_FONT, File("files/fonts/Product-Sans-Regular.ttf"))
         val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         ge.registerFont(regular)
     }
 
     fun registerLight() {
         light =
-            Font.createFont(Font.TRUETYPE_FONT, File("resources/fonts/Product-Sans-Light.ttf"))
+            Font.createFont(Font.TRUETYPE_FONT, File("files/fonts/Product-Sans-Light.ttf"))
         val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         ge.registerFont(light)
     }
