@@ -8,7 +8,7 @@ import frontend.viewer.UICircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object SytleZeroScreen : Screen() { // Screen with reactive cpu and gpu temperature circles
+object StyleZeroScreen : Screen() { // Screen with reactive cpu and gpu temperature circles
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")

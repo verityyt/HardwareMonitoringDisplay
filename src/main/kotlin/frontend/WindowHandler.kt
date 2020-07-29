@@ -77,9 +77,11 @@ object WindowHandler {
                         window.dispose()
                         if (window.isUndecorated) {
                             window.isUndecorated = false
+                            window.isAlwaysOnTop = false
                             println("Switched to windowed mode")
                         } else {
                             window.isUndecorated = true
+                            window.isAlwaysOnTop = true
                             println("Switched to fullscreen mode")
                         }
                         window.isVisible = true
@@ -91,7 +93,7 @@ object WindowHandler {
             window.isUndecorated = false
             window.setSize(800, 600)
             window.isResizable = false
-            window.isAlwaysOnTop = true
+            window.isAlwaysOnTop = false
             window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x600)"
             window.iconImage = ImageIO.read(File("resources/images/WindowIcon.png"))
 

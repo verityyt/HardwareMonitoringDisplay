@@ -7,7 +7,7 @@ import frontend.Screen
 import frontend.WindowHandler
 import frontend.screens.styles.nonreactive.StyleOneScreen
 import frontend.screens.styles.reactive.StyleTwoScreen
-import frontend.screens.styles.reactive.SytleZeroScreen
+import frontend.screens.styles.reactive.StyleZeroScreen
 import frontend.screens.styles.nonreactive.StyleThreeScreen
 import java.awt.Color
 import java.awt.Graphics
@@ -66,7 +66,7 @@ object StartingScreen : Screen() {
 
                 if(style == 0) {
                     WindowHandler.screen =
-                        SytleZeroScreen
+                        StyleZeroScreen
                 }else if(style == 1) {
                     WindowHandler.screen =
                         StyleOneScreen
