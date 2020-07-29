@@ -18,7 +18,7 @@ object WindowHandler {
     /**
      * Window of the complete frontend
      */
-    private lateinit var window: JFrame
+    lateinit var window: JFrame
 
     /**
      * Component of the window

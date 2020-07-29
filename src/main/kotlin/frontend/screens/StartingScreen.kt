@@ -33,7 +33,7 @@ object StartingScreen : Screen() {
 
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
 
-        graphics.drawImage(ImageIO.read(File("files/images/Rocket.png")),337,198,125,125, observer)
+        graphics.drawImage(ImageIO.read(File("files/images/Rocket.png")), 337, 198, 125, 125, observer)
 
         graphics.color = Color.BLACK
         graphics.fillRect(149, 366, 502, 8)
@@ -55,12 +55,25 @@ object StartingScreen : Screen() {
             CustomFont.regular?.deriveFont(16f)!!
         )
 
-        graphics.font = CustomFont.regular!!.deriveFont(12f)
-        graphics.color = Color.decode("#8F8F8F")
-        graphics.drawString("Designed and developed by",10,560)
+        if (WindowHandler.window.isUndecorated) {
 
-        graphics.color = Color.decode("#585858")
-        graphics.drawString("verity",157,560)
+            graphics.font = CustomFont.regular!!.deriveFont(12f)
+            graphics.color = Color.decode("#8F8F8F")
+            graphics.drawString("Designed and developed by", 10, 590)
+
+            graphics.color = Color.decode("#585858")
+            graphics.drawString("verity", 157, 590)
+
+        } else {
+
+            graphics.font = CustomFont.regular!!.deriveFont(12f)
+            graphics.color = Color.decode("#8F8F8F")
+            graphics.drawString("Designed and developed by", 10, 560)
+
+            graphics.color = Color.decode("#585858")
+            graphics.drawString("verity", 157, 560)
+
+        }
 
     }
 
@@ -73,31 +86,31 @@ object StartingScreen : Screen() {
 
                 WindowHandler.fps = 24
 
-                if(style == 0) {
+                if (style == 0) {
                     WindowHandler.screen =
                         StyleZeroScreen
-                }else if(style == 1) {
+                } else if (style == 1) {
                     WindowHandler.screen =
                         StyleOneScreen
-                }else if(style == 2) {
+                } else if (style == 2) {
                     WindowHandler.screen =
                         StyleTwoScreen
-                }else if(style == 3) {
+                } else if (style == 3) {
                     WindowHandler.screen =
                         StyleThreeScreen
-                }else if(style == 4) {
-                    WindowHandler.changeWindowSize(600,400)
+                } else if (style == 4) {
+                    WindowHandler.changeWindowSize(600, 400)
                     WindowHandler.screen =
                         StyleFourScreen
-                }else if(style == 5) {
-                    WindowHandler.changeWindowSize(600,400)
+                } else if (style == 5) {
+                    WindowHandler.changeWindowSize(600, 400)
                     WindowHandler.screen =
                         StyleFiveScreen
-                }else {
+                } else {
                     println("No style with number $style found!")
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "style.unknown.$style"
-                        (WindowHandler.screen as StartingScreen).animateLoading( 79, 30)
+                        (WindowHandler.screen as StartingScreen).animateLoading(79, 30)
                     }
                 }
 
