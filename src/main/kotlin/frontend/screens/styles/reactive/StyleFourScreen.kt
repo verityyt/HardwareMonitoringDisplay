@@ -12,14 +12,16 @@ object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temp
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")
-    private var ssdTemperature: String = LanguageTranslator.get("style.loading")
-    private var hddTemperature: String = LanguageTranslator.get("style.loading")
+    private var drive1Temperature: String = LanguageTranslator.get("style.loading")
+    private var drive2Temperature: String = LanguageTranslator.get("style.loading")
     private var ramLoad: String = LanguageTranslator.get("style.loading")
     private var cpuArcCalc: Int = 0
     private var gpuArcCalc: Int = 0
     private var ssdArcCalc: Int = 0
     private var hddArcCalc: Int = 0
     private var ramArcCalc: Int = 0
+    private var drive1Name = Configuration.get("drive1_name")
+    private var drive2Name = Configuration.get("drive2_name")
 
     init {
         Thread {
@@ -27,14 +29,14 @@ object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temp
             cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
             gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
             gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
-            ssdTemperature =
-                "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("sdd_filter")).toString()
+            drive1Temperature =
+                "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("drive1_filter")).toString()
                     .split(".")[0]}°C"
-            ssdArcCalc = ((ssdTemperature.replace("°C", "").toInt()) * 1.8).toInt()
-            hddTemperature =
-                "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("hdd_filter")).toString()
+            ssdArcCalc = ((drive1Temperature.replace("°C", "").toInt()) * 1.8).toInt()
+            drive2Temperature =
+                "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("drive2_filter")).toString()
                     .split(".")[0]}°C"
-            hddArcCalc = ((hddTemperature.replace("°C", "").toInt()) * 1.8).toInt()
+            hddArcCalc = ((drive2Temperature.replace("°C", "").toInt()) * 1.8).toInt()
             ramLoad = "${HardwareMonitoringDisplay.ram.usedRam()}mb"
             ramArcCalc =
                 ((180.0 / HardwareMonitoringDisplay.ram.maxRam()) * HardwareMonitoringDisplay.ram.usedRam()).toInt()
@@ -46,14 +48,14 @@ object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temp
                 cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
                 gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
                 gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
-                ssdTemperature =
-                    "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("sdd_filter")).toString()
+                drive1Temperature =
+                    "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("drive1_filter")).toString()
                         .split(".")[0]}°C"
-                ssdArcCalc = ((ssdTemperature.replace("°C", "").toInt()) * 1.8).toInt()
-                hddTemperature =
-                    "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("hdd_filter")).toString()
+                ssdArcCalc = ((drive1Temperature.replace("°C", "").toInt()) * 1.8).toInt()
+                drive2Temperature =
+                    "${HardwareMonitoringDisplay.systemDrive.temperature(Configuration.get("drive2_filter")).toString()
                         .split(".")[0]}°C"
-                hddArcCalc = ((hddTemperature.replace("°C", "").toInt()) * 1.8).toInt()
+                hddArcCalc = ((drive2Temperature.replace("°C", "").toInt()) * 1.8).toInt()
                 ramLoad = "${HardwareMonitoringDisplay.ram.usedRam()}mb"
                 ramArcCalc =
                     ((180.0 / HardwareMonitoringDisplay.ram.maxRam()) * HardwareMonitoringDisplay.ram.usedRam()).toInt()
@@ -83,13 +85,13 @@ object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temp
             gpuArcCalc
         )
         UICircles().paint(
-            graphics, 152, 195, 130, ColorPalette.COLOR_SSD, 4f, "SSD", 11f, Rectangle(153, 240, 130, 8),
-            ssdTemperature, 26f, Rectangle(153, 256, 130, 19),
+            graphics, 152, 195, 130, ColorPalette.COLOR_DRIVE1, 4f, drive1Name, 11f, Rectangle(153, 240, 130, 8),
+            drive1Temperature, 26f, Rectangle(153, 256, 130, 19),
             ssdArcCalc
         )
         UICircles().paint(
-            graphics, 300, 195, 130, ColorPalette.COLOR_HDD, 4f, "HDD", 11f, Rectangle(301, 240, 130, 8),
-            hddTemperature, 26f, Rectangle(301, 256, 130, 20),
+            graphics, 300, 195, 130, ColorPalette.COLOR_DRIVE2, 4f, drive2Name, 11f, Rectangle(301, 240, 130, 8),
+            drive2Temperature, 26f, Rectangle(301, 256, 130, 20),
             hddArcCalc
         )
 
