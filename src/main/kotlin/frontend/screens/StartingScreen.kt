@@ -5,6 +5,7 @@ import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
+import frontend.screens.styles.nonreactive.StyleFiveScreen
 import frontend.screens.styles.nonreactive.StyleOneScreen
 import frontend.screens.styles.reactive.StyleTwoScreen
 import frontend.screens.styles.reactive.StyleZeroScreen
@@ -81,6 +82,10 @@ object StartingScreen : Screen() {
                     WindowHandler.changeWindowSize(600,400)
                     WindowHandler.screen =
                         StyleFourScreen
+                }else if(style == 5) {
+                    WindowHandler.changeWindowSize(600,400)
+                    WindowHandler.screen =
+                        StyleFiveScreen
                 }else {
                     println("No style with number $style found!")
                     if (WindowHandler.screen is StartingScreen) {

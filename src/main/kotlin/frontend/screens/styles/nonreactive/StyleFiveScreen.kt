@@ -1,4 +1,4 @@
-package frontend.screens.styles.reactive
+package frontend.screens.styles.nonreactive
 
 import backend.Configuration
 import frontend.utils.ColorPalette
@@ -8,18 +8,13 @@ import frontend.viewer.UICircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temperature and ram usage circles
+object StyleFiveScreen : Screen() { // Screen with nonreactive cpu,gpu, drives temperature and ram usage circles
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")
     private var drive1Temperature: String = LanguageTranslator.get("style.loading")
     private var drive2Temperature: String = LanguageTranslator.get("style.loading")
     private var ramLoad: String = LanguageTranslator.get("style.loading")
-    private var cpuArcCalc: Int = 0
-    private var gpuArcCalc: Int = 0
-    private var ssdArcCalc: Int = 0
-    private var hddArcCalc: Int = 0
-    private var ramArcCalc: Int = 0
     private var drive1Name = Configuration.get("drive1_name")
     private var drive2Name = Configuration.get("drive2_name")
     private var drive1Filter = Configuration.get("drive1_filter")
@@ -28,39 +23,27 @@ object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temp
     init {
         Thread {
             cpuTemperature = "${HardwareMonitoringDisplay.cpu.temperature().toString().split(".")[0]}°C"
-            cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
             gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
-            gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
             drive1Temperature =
                 "${HardwareMonitoringDisplay.systemDrive.temperature(drive1Filter).toString()
                     .split(".")[0]}°C"
-            ssdArcCalc = ((drive1Temperature.replace("°C", "").toInt()) * 1.8).toInt()
             drive2Temperature =
                 "${HardwareMonitoringDisplay.systemDrive.temperature(drive2Filter).toString()
                     .split(".")[0]}°C"
-            hddArcCalc = ((drive2Temperature.replace("°C", "").toInt()) * 1.8).toInt()
             ramLoad = "${HardwareMonitoringDisplay.ram.usedRam()}mb"
-            ramArcCalc =
-                ((180.0 / HardwareMonitoringDisplay.ram.maxRam()) * HardwareMonitoringDisplay.ram.usedRam()).toInt()
 
             val delay = Configuration.get("update_delay_ms").toLong()
 
             while (true) {
                 cpuTemperature = "${HardwareMonitoringDisplay.cpu.temperature().toString().split(".")[0]}°C"
-                cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
                 gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
-                gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
                 drive1Temperature =
                     "${HardwareMonitoringDisplay.systemDrive.temperature(drive1Filter).toString()
                         .split(".")[0]}°C"
-                ssdArcCalc = ((drive1Temperature.replace("°C", "").toInt()) * 1.8).toInt()
                 drive2Temperature =
                     "${HardwareMonitoringDisplay.systemDrive.temperature(drive2Filter).toString()
                         .split(".")[0]}°C"
-                hddArcCalc = ((drive2Temperature.replace("°C", "").toInt()) * 1.8).toInt()
                 ramLoad = "${HardwareMonitoringDisplay.ram.usedRam()}mb"
-                ramArcCalc =
-                    ((180.0 / HardwareMonitoringDisplay.ram.maxRam()) * HardwareMonitoringDisplay.ram.usedRam()).toInt()
 
                 Thread.sleep(delay)
             }
@@ -74,27 +57,27 @@ object StyleFourScreen : Screen() { // Screen with reactive cpu,gpu, drives temp
         UICircles().paint(
             graphics, 76, 60, 130, ColorPalette.COLOR_CPU, 4f, "CPU", 11f, Rectangle(76, 106, 130, 8),
             cpuTemperature, 26f, Rectangle(76, 120, 130, 20),
-            cpuArcCalc
+            180
         )
         UICircles().paint(
             graphics, 225, 60, 130, ColorPalette.COLOR_RAM, 4f, "RAM", 11f, Rectangle(226, 109, 130, 8),
             ramLoad, 20f, Rectangle(226, 124, 130, 16),
-            ramArcCalc
+            180
         )
         UICircles().paint(
             graphics, 375, 60, 130, ColorPalette.COLOR_GPU, 4f, "GPU", 11f, Rectangle(375, 108, 130, 8),
             gpuTemperature, 26f, Rectangle(375, 119, 130, 20),
-            gpuArcCalc
+            180
         )
         UICircles().paint(
             graphics, 152, 195, 130, ColorPalette.COLOR_DRIVE1, 4f, drive1Name, 11f, Rectangle(153, 240, 130, 8),
             drive1Temperature, 26f, Rectangle(153, 256, 130, 19),
-            ssdArcCalc
+            180
         )
         UICircles().paint(
             graphics, 300, 195, 130, ColorPalette.COLOR_DRIVE2, 4f, drive2Name, 11f, Rectangle(301, 240, 130, 8),
             drive2Temperature, 26f, Rectangle(301, 256, 130, 20),
-            hddArcCalc
+            180
         )
 
     }
