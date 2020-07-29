@@ -8,7 +8,7 @@ import frontend.viewer.UICircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object ReactiveCpuRamGpuCirclesStyleScreen : Screen() {
+object StyleTwoScreen : Screen() { // Screen with reactive cpu,gpu temperature and ram usage circles
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")

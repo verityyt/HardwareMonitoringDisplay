@@ -1,4 +1,4 @@
-package frontend.screens.styles.reactive
+package frontend.screens.styles.nonreactive
 
 import backend.Configuration
 import frontend.utils.ColorPalette
@@ -8,27 +8,21 @@ import frontend.viewer.UICircles
 import java.awt.*
 import java.awt.image.ImageObserver
 
-object ReactiveCpuGpuCirclesStyleScreen : Screen() {
+object StyleOneScreen : Screen() { // Screen with nonreactive cpu and gpu temperature circles
 
     private var cpuTemperature: String = LanguageTranslator.get("style.loading")
     private var gpuTemperature: String = LanguageTranslator.get("style.loading")
-    private var cpuArcCalc: Int = 0
-    private var gpuArcCalc: Int = 0
 
     init {
         Thread {
             cpuTemperature = "${HardwareMonitoringDisplay.cpu.temperature().toString().split(".")[0]}°C"
-            cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
             gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
-            gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
 
             val delay = Configuration.get("update_delay_ms").toLong()
 
             while (true) {
                 cpuTemperature = "${HardwareMonitoringDisplay.cpu.temperature().toString().split(".")[0]}°C"
-                cpuArcCalc = ((cpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
                 gpuTemperature = "${HardwareMonitoringDisplay.gpu.temperature().toString().split(".")[0]}°C"
-                gpuArcCalc = ((gpuTemperature.replace("°C", "").toInt()) * 1.8).toInt()
 
                 Thread.sleep(delay)
             }
@@ -42,12 +36,12 @@ object ReactiveCpuGpuCirclesStyleScreen : Screen() {
         UICircles().paint(
             graphics, 90, 175, 250, ColorPalette.COLOR_CPU, 7f, "CPU", 24f, Rectangle(90, 175 + 91, 250, 19),
             cpuTemperature, 45f, Rectangle(90, 180 + 120, 250, 19),
-            cpuArcCalc
+            180
         )
         UICircles().paint(
             graphics, 460, 175, 250, ColorPalette.COLOR_GPU, 7f, "GPU", 24f, Rectangle(460, 175 + 91, 250, 19),
             gpuTemperature, 45f, Rectangle(460, 180 + 120, 250, 19),
-            gpuArcCalc
+            180
         )
 
     }

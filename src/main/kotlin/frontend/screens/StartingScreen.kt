@@ -5,10 +5,10 @@ import frontend.utils.CustomFont
 import frontend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
-import frontend.screens.styles.nonreactive.NonreactiveCpuGpuCirclesStyleScreen
-import frontend.screens.styles.reactive.ReactiveCpuRamGpuCirclesStyleScreen
-import frontend.screens.styles.reactive.ReactiveCpuGpuCirclesStyleScreen
-import frontend.screens.styles.nonreactive.NonreactiveCpuRamGpuCirclesStyleScreen
+import frontend.screens.styles.nonreactive.StyleOneScreen
+import frontend.screens.styles.reactive.StyleTwoScreen
+import frontend.screens.styles.reactive.SytleZeroScreen
+import frontend.screens.styles.nonreactive.StyleThreeScreen
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Graphics2D
@@ -66,16 +66,16 @@ object StartingScreen : Screen() {
 
                 if(style == 0) {
                     WindowHandler.screen =
-                        ReactiveCpuGpuCirclesStyleScreen
+                        SytleZeroScreen
                 }else if(style == 1) {
                     WindowHandler.screen =
-                        NonreactiveCpuGpuCirclesStyleScreen
+                        StyleOneScreen
                 }else if(style == 2) {
                     WindowHandler.screen =
-                        ReactiveCpuRamGpuCirclesStyleScreen
+                        StyleTwoScreen
                 }else if(style == 3) {
                     WindowHandler.screen =
-                        NonreactiveCpuRamGpuCirclesStyleScreen
+                        StyleThreeScreen
                 }else {
                     println("No style with number $style found!")
                     if (WindowHandler.screen is StartingScreen) {
