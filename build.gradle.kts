@@ -11,11 +11,14 @@ repositories {
 }
 
 dependencies {
-    compile(files("D:\\Development\\Utils\\APIs\\json-simple-1.1.jar"))
-    compile("com.profesorfalken","jSensors","2.2.1")
     compile(kotlin("stdlib-jdk8"))
     testCompile("junit", "junit", "4.12")
     compile(gradleApi())
+
+    compile("com.github.oshi:oshi-core:5.3.3")
+    compile("com.profesorfalken","jSensors","2.2.1")
+    compile(files("D:\\Development\\Utils\\APIs\\json-simple-1.1.jar"))
+
 }
 
 configure<JavaPluginConvention> {
