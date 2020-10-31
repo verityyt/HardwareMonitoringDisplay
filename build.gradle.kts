@@ -15,11 +15,13 @@ dependencies {
     compile("com.profesorfalken","jSensors","2.2.1")
     compile(kotlin("stdlib-jdk8"))
     testCompile("junit", "junit", "4.12")
+    compile(gradleApi())
 }
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
+
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "1.8"
