@@ -1,5 +1,6 @@
 package backend.monitoring
 
+import backend.NotificationManager
 import backend.errors.NoComponentFoundException
 import backend.errors.NoComponentSensorFoundException
 import com.profesorfalken.jsensors.JSensors
@@ -17,7 +18,13 @@ object CPU {
         if (cpus != null) {
             for (cpu in cpus) {
                 if (cpu.sensors != null) {
-                    return cpu.sensors.temperatures.first().value
+                    val value = cpu.sensors.temperatures.first().value
+
+                    Thread {
+                        NotificationManager.checkCpuTemp(value)
+                    }.start()
+
+                    return value
                 }else {
                     throw NoComponentSensorFoundException("CPU")
                 }

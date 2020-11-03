@@ -2,7 +2,7 @@ package frontend.screens
 
 import backend.Configuration
 import frontend.utils.CustomFont
-import frontend.LanguageTranslator
+import backend.LanguageTranslator
 import frontend.Screen
 import frontend.WindowHandler
 import frontend.screens.styles.nonreactive.StyleFiveScreen

@@ -35,6 +35,9 @@ object Configuration {
             jsonObject.put("color_drive2", "#F1C40F")
             jsonObject.put("color_text", "#000000")
             jsonObject.put("color_bg", "#FFFFFF")
+            jsonObject.put("alarm_sound", "false")
+            jsonObject.put("alarm_cpu", "0")
+            jsonObject.put("alarm_gpu", "0")
 
             val writer = file.writer()
             writer.write(jsonObject.toJSONString())

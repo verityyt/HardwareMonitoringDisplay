@@ -1,5 +1,6 @@
 package backend.monitoring
 
+import backend.NotificationManager
 import backend.errors.NoComponentFoundException
 import backend.errors.NoComponentSensorFoundException
 import com.profesorfalken.jsensors.JSensors
@@ -17,7 +18,13 @@ object GPU {
         if (gpus != null) {
             for (gpu in gpus) {
                 if (gpu.sensors != null) {
-                    return gpu.sensors.temperatures.first().value
+                    val value = gpu.sensors.temperatures.first().value
+
+                    Thread {
+                        NotificationManager.checkGpuTemp(value)
+                    }.start()
+
+                    return value
                 }else {
                     throw NoComponentSensorFoundException("GPU")
                 }

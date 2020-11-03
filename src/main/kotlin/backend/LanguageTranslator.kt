@@ -1,6 +1,4 @@
-package frontend
-
-import backend.Configuration
+package backend
 
 object LanguageTranslator {
 
@@ -24,6 +22,12 @@ object LanguageTranslator {
                 return "Finished!"
             }else if(text == "style.loading") {
                 return "Loading..."
+            }else if(text == "alarm.cpu.temp") {
+                return "CPU Temperature is too high"
+            }else if(text == "alarm.gpu.temp") {
+                return "GPU Temperature is too high"
+            }else if(text == "alarm.temp.text") {
+                return "Current Temperature is"
             }else if(text.startsWith("style.unknown")) {
                 return "Style with number ${text.split(".")[2]} not found!"
             }
@@ -42,6 +46,12 @@ object LanguageTranslator {
                 return "Beendet!"
             }else if(text == "style.loading") {
                 return "Lädt..."
+            }else if(text == "alarm.cpu.temp") {
+                return "CPU Temperatur ist zu hoch"
+            }else if(text == "alarm.gpu.temp") {
+                return "GPU Temperatur ist zu hoch"
+            }else if(text == "alarm.temp.text") {
+                return "Die aktuelle Temperatur ist"
             }else if(text.startsWith("style.unknown")) {
                 return "Stil mit der Nummer ${text.split(".")[2]} nicht gefunden!"
             }

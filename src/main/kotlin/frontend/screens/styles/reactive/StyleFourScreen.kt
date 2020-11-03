@@ -2,7 +2,7 @@ package frontend.screens.styles.reactive
 
 import backend.Configuration
 import frontend.utils.ColorPalette
-import frontend.LanguageTranslator
+import backend.LanguageTranslator
 import frontend.Screen
 import frontend.viewer.UICircles
 import java.awt.*
