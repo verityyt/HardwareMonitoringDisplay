@@ -1,4 +1,5 @@
 import backend.Configuration
+import backend.NotificationManager
 import backend.monitoring.CPU
 import backend.monitoring.DRIVE
 import backend.monitoring.GPU
@@ -45,6 +46,7 @@ object HardwareMonitoringDisplay {
         println("Starting Hardware Monitoring Display...")
 
         WindowHandler.openWindow()
+        NotificationManager.startUp()
 
         Timer().schedule(object : TimerTask() {
             override fun run() {

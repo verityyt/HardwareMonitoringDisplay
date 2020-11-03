@@ -1,8 +1,12 @@
 package backend
 
+import java.awt.Image
+import java.awt.SystemTray
+import java.awt.Toolkit
 import java.awt.TrayIcon
 import java.io.File
 import java.util.*
+import javax.imageio.ImageIO
 import javax.sound.sampled.AudioSystem
 
 import javax.sound.sampled.AudioInputStream
@@ -14,6 +18,20 @@ object NotificationManager {
 
     private val cpuTempBorder = Configuration.get("alarm_cpu").toDouble()
     private val gpuTempBorder = Configuration.get("alarm_gpu").toDouble()
+
+    lateinit var trayIcon: TrayIcon
+
+    fun startUp() {
+        if(SystemTray.isSupported()) {
+            val tray = SystemTray.getSystemTray()
+            val image: Image = ImageIO.read(File("files/images/WindowIcon.png"))
+            trayIcon = TrayIcon(image, "HMD")
+            trayIcon.isImageAutoSize = true
+            tray.add(trayIcon)
+        }else {
+            println("System tray is not supported!")
+        }
+    }
 
     fun checkCpuTemp(temp: Double) {
         if(cpuTempBorder != 0.0 && temp >= cpuTempBorder) {
