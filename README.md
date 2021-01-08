@@ -15,4 +15,4 @@ Basically every hardware from every brand is supported
 HMD monitors and shows you, your ram usage, your cpu- and gpu temperature and the temperature of two (set by you) ssds or hdds.
 
 ### Which os is supported?
-Current is only Windows 10 supported.
+Currently is only Windows 10 supported.
