@@ -1,2 +1,1 @@
-rootProject.name = "[Application] Hardware Monitoring Display"
-
+rootProject.name = "hardware-monitoring-display"
