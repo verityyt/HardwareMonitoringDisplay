@@ -41,6 +41,8 @@ object HardwareMonitoringDisplay {
      */
     val version = "v0.2.1"
 
+    val ohmProcess = ProcessBuilder("files\\ohm_0-9-6\\OpenHardwareMonitor.exe").start()
+
     @JvmStatic
     fun main(args: Array<String>) {
         println("Starting Hardware Monitoring Display...")

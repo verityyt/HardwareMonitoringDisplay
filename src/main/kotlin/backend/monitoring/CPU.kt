@@ -1,36 +1,21 @@
 package backend.monitoring
 
-import backend.NotificationManager
-import backend.errors.NoComponentFoundException
-import backend.errors.NoComponentSensorFoundException
 import com.profesorfalken.jsensors.JSensors
+import oshi.SystemInfo
 
 object CPU {
+
+    val sensors = SystemInfo().hardware.sensors
 
     /**
      * Returns the current temperature of the CPU
      * !!! Takes 1000ms to return !!!
      */
     fun temperature(): Double? {
+        val temp = sensors.cpuTemperature
 
-        val cpus = JSensors.get.components().cpus
-
-        if (cpus != null) {
-            for (cpu in cpus) {
-                if (cpu.sensors != null) {
-                    val value = cpu.sensors.temperatures.first().value
-
-                    Thread {
-                        NotificationManager.checkCpuTemp(value)
-                    }.start()
-
-                    return value
-                }else {
-                    throw NoComponentSensorFoundException("CPU")
-                }
-            }
-        }else {
-            throw NoComponentFoundException("CPU")
+        if(HardwareMonitoringDisplay.ohmProcess.isAlive) {
+            return temp
         }
 
         return null
