@@ -116,6 +116,12 @@ object WindowHandler {
 
             window.isVisible = true
 
+            // Adding custom shutdown hook
+            Runtime.getRuntime().addShutdownHook(Thread {
+                println("Killing OHM process...")
+                Runtime.getRuntime().exec("taskkill /IM \"OpenHardwareMonitor.exe\" /F")
+            })
+
             while (true) {
                 Thread.sleep(1000 / fps)
                 window.repaint()
