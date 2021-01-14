@@ -8,6 +8,7 @@ import frontend.WindowHandler
 import frontend.screens.StartingScreen
 import frontend.utils.CustomFont
 import java.util.*
+import kotlin.system.exitProcess
 
 object HardwareMonitoringDisplay {
 
@@ -57,7 +58,20 @@ object HardwareMonitoringDisplay {
                     (WindowHandler.screen as StartingScreen).animateLoading(20, 30)
                 }
 
-                println("Creating/Loading configuration")
+                println("Checking OS...")
+
+                if (WindowHandler.screen is StartingScreen) {
+                    (WindowHandler.screen as StartingScreen).startingText = "loading.os"
+                    (WindowHandler.screen as StartingScreen).animateLoading(25, 30)
+                }
+
+                val os = System.getProperty("os.name")
+                if(os != "Windows 10") {
+                    println("Wrong operating system! ($os)")
+                    exitProcess(0)
+                }
+
+                println("Creating/Loading configuration...")
 
                 Configuration.create().also {
                     if (WindowHandler.screen is StartingScreen) {

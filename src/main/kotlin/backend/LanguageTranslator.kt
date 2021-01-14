@@ -18,6 +18,8 @@ object LanguageTranslator {
                 return "Searching for GPU..."
             }else if(text == "loading.drives") {
                 return "Searching for Drives..."
+            }else if(text == "loading.os") {
+                return "Checking operating system..."
             }else if(text == "loading.finished") {
                 return "Finished!"
             }else if(text == "style.loading") {
@@ -42,6 +44,8 @@ object LanguageTranslator {
                 return "Suche nach GPU..."
             }else if(text == "loading.drives") {
                 return "Suche nach Festplatten..."
+            }else if(text == "loading.os") {
+                return "Überprüfe Betriebssystem..."
             }else if(text == "loading.finished") {
                 return "Beendet!"
             }else if(text == "style.loading") {
