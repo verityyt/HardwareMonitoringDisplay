@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>D:\Development\Intellij Workspace\Kotlin\HardwareMonitoringDisplay\build\libs\HardwareMonitoringDisplay.jar</jar>
-  <outfile>D:\Development\Intellij Workspace\Kotlin\HardwareMonitoringDisplay\launch4j\Hardware Monitoring Display.exe</outfile>
+  <jar>D:\Development\Workspace\Kotlin\hardware-monitoring-display\build\libs\HardwareMonitoringDisplay.jar</jar>
+  <outfile>D:\Development\Workspace\Kotlin\hardware-monitoring-display\launch4j\Hardware Monitoring Display.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -12,8 +12,8 @@
   <supportUrl></supportUrl>
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
-  <manifest>D:\Development\Intellij Workspace\Kotlin\HardwareMonitoringDisplay\launch4j\utils\administrator.manifest</manifest>
-  <icon>D:\Development\Intellij Workspace\Kotlin\HardwareMonitoringDisplay\launch4j\utils\icon.ico</icon>
+  <manifest>D:\Development\Workspace\Kotlin\hardware-monitoring-display\launch4j\utils\administrator.manifest</manifest>
+  <icon>D:\Development\Workspace\Kotlin\hardware-monitoring-display\launch4j\utils\icon.ico</icon>
   <jre>
     <path></path>
     <bundledJre64Bit>false</bundledJre64Bit>
