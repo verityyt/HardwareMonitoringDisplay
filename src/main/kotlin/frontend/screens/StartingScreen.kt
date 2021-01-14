@@ -68,10 +68,10 @@ object StartingScreen : Screen() {
 
             graphics.font = CustomFont.regular!!.deriveFont(12f)
             graphics.color = Color.decode("#8F8F8F")
-            graphics.drawString("Designed and developed by", 10, 560)
+            graphics.drawString("Designed and developed by", 8, 555)
 
             graphics.color = Color.decode("#585858")
-            graphics.drawString("verity", 157, 560)
+            graphics.drawString("verity", 155, 555)
 
         }
 
