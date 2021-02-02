@@ -10,41 +10,25 @@ object Configuration {
 
     val file = File("config.json")
 
-    /**
-     *
-     * Styles:
-     *   0: ReactiveCpuGpuCirclesStyleScreen
-     *   1: NonreactiveCpuGpuCirclesStyleScreen
-     *   2: ReactiveCpuRamGpuCirclesStyleScreen
-     *
-     */
-    fun create() {
-        if (!file.exists()) {
-            val jsonObject = JSONObject()
-            jsonObject.put("language", "en")
-            jsonObject.put("style", "0")
-            jsonObject.put("update_delay_ms", "1000")
-            jsonObject.put("drive1_filter", "")
-            jsonObject.put("drive2_filter", "")
-            jsonObject.put("drive1_name", "")
-            jsonObject.put("drive2_name", "")
-            jsonObject.put("color_cpu", "#3867D6")
-            jsonObject.put("color_gpu", "#8854D0")
-            jsonObject.put("color_ram", "#2ECC71")
-            jsonObject.put("color_drive1", "#E67E22")
-            jsonObject.put("color_drive2", "#F1C40F")
-            jsonObject.put("color_text", "#000000")
-            jsonObject.put("color_bg", "#FFFFFF")
-            jsonObject.put("alarm_sound", "false")
-            jsonObject.put("alarm_cpu", "0")
-            jsonObject.put("alarm_gpu", "0")
+    fun check() {
+        val json = JSONParser().parse(file.readText()) as JSONObject
 
-            val writer = file.writer()
-            writer.write(jsonObject.toJSONString())
-            writer.flush()
-            writer.close()
+        if(json["alarm_cpu"] == null) {
+            println("First start")
 
-            exitProcess(0)
+            json["language"] = "en"
+            json["style"] = "0"
+            json["update_delay_ms"] = "1000"
+            json["color_cpu"] = "#3867D6"
+            json["color_gpu"] = "#8854D0"
+            json["color_ram"] = "#2ECC71"
+            json["color_drive1"] = "#E67E22"
+            json["color_drive2"] = "#F1C40F"
+            json["alarm_sound"] = "false"
+            json["alarm_cpu"] = "0"
+            json["alarm_gpu"] = "0"
+
+            file.writeText(json.toJSONString())
         }
     }
 

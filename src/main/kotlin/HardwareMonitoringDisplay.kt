@@ -48,6 +48,7 @@ object HardwareMonitoringDisplay {
     fun main(args: Array<String>) {
         println("Starting Hardware Monitoring Display...")
 
+        Configuration.check()
         WindowHandler.openWindow()
         NotificationManager.startUp()
 
@@ -62,22 +63,13 @@ object HardwareMonitoringDisplay {
 
                 if (WindowHandler.screen is StartingScreen) {
                     (WindowHandler.screen as StartingScreen).startingText = "loading.os"
-                    (WindowHandler.screen as StartingScreen).animateLoading(25, 30)
+                    (WindowHandler.screen as StartingScreen).animateLoading(25, 35)
                 }
 
                 val os = System.getProperty("os.name")
-                if(os != "Windows 10") {
+                if (os != "Windows 10") {
                     println("Wrong operating system! ($os)")
                     exitProcess(0)
-                }
-
-                println("Creating/Loading configuration...")
-
-                Configuration.create().also {
-                    if (WindowHandler.screen is StartingScreen) {
-                        (WindowHandler.screen as StartingScreen).startingText = "loading.config"
-                        (WindowHandler.screen as StartingScreen).animateLoading(35, 30)
-                    }
                 }
 
                 println("Registering fonts...")
