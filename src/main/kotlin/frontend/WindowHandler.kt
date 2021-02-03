@@ -1,10 +1,8 @@
 package frontend
 
+import backend.Configuration
 import frontend.screens.StartingScreen
-import java.awt.Color
-import java.awt.Graphics
-import java.awt.Graphics2D
-import java.awt.RenderingHints
+import java.awt.*
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
 import java.io.File
@@ -114,12 +112,17 @@ object WindowHandler {
             window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x600)"
             window.iconImage = ImageIO.read(File("files/images/WindowIcon.png"))
 
+            window.location = Point(Configuration.get("posX").toInt(), Configuration.get("posY").toInt())
+
             window.isVisible = true
 
             // Adding custom shutdown hook
             Runtime.getRuntime().addShutdownHook(Thread {
                 println("Killing OHM process...")
                 Runtime.getRuntime().exec("taskkill /IM \"OpenHardwareMonitor.exe\" /F")
+
+                Configuration.set("posX", window.location.x.toString())
+                Configuration.set("posY", window.location.y.toString())
             })
 
             while (true) {

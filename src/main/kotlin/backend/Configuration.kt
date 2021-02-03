@@ -3,8 +3,6 @@ package backend
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.File
-import kotlin.system.exitProcess
-
 
 object Configuration {
 
@@ -27,6 +25,8 @@ object Configuration {
             json["alarm_sound"] = "false"
             json["alarm_cpu"] = "0"
             json["alarm_gpu"] = "0"
+            json["posX"] = "0"
+            json["posY"] = "0"
 
             file.writeText(json.toJSONString())
         }
@@ -39,6 +39,17 @@ object Configuration {
         reader.close()
 
         return (jsonObject as JSONObject)[key].toString()
+    }
+
+    fun set(key: String, value: String) {
+
+        println("setting $key to $value")
+
+        val json = JSONParser().parse(file.readText()) as JSONObject
+
+        json[key] = value
+
+        file.writeText(json.toJSONString())
     }
 
 }
