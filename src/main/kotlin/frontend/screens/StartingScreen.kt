@@ -3,6 +3,7 @@ package frontend.screens
 import backend.Configuration
 import frontend.utils.CustomFont
 import backend.LanguageTranslator
+import backend.Logger
 import frontend.Screen
 import frontend.WindowHandler
 import frontend.screens.styles.nonreactive.StyleFiveScreen
@@ -107,7 +108,7 @@ object StartingScreen : Screen() {
                     WindowHandler.screen =
                         StyleFiveScreen
                 } else {
-                    println("No style with number $style found!")
+                    Logger.log("No style with number $style found!", this.javaClass)
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "style.unknown.$style"
                         (WindowHandler.screen as StartingScreen).animateLoading(79, 30)

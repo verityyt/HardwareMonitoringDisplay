@@ -1,5 +1,6 @@
 package frontend.utils
 
+import backend.Logger
 import java.awt.*
 import java.io.File
 import java.io.FileOutputStream
@@ -16,7 +17,7 @@ object CustomFont {
         registerRegular()
         registerLight()
 
-        println("Registered Fonts!")
+        Logger.log("Registered Fonts!", this.javaClass)
     }
 
 

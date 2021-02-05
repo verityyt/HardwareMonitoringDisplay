@@ -1,6 +1,7 @@
 package frontend
 
 import backend.Configuration
+import backend.Logger
 import frontend.screens.StartingScreen
 import java.awt.*
 import java.awt.event.KeyEvent
@@ -93,11 +94,11 @@ object WindowHandler {
                         if (window.isUndecorated) {
                             window.isUndecorated = false
                             window.isAlwaysOnTop = false
-                            println("Switched to windowed mode")
+                            Logger.log("Switched to windowed mode", this.javaClass)
                         } else {
                             window.isUndecorated = true
                             window.isAlwaysOnTop = true
-                            println("Switched to fullscreen mode")
+                            Logger.log("Switched to fullscreen mode", this.javaClass)
                         }
                         window.isVisible = true
                     }
@@ -118,7 +119,7 @@ object WindowHandler {
 
             // Adding custom shutdown hook
             Runtime.getRuntime().addShutdownHook(Thread {
-                println("Killing OHM process...")
+                Logger.log("Killing OHM process...", this.javaClass)
                 Runtime.getRuntime().exec("taskkill /IM \"OpenHardwareMonitor.exe\" /F")
 
                 Configuration.set("posX", window.location.x.toString())

@@ -1,5 +1,6 @@
 package backend.monitoring
 
+import backend.Logger
 import backend.errors.NoComponentFoundException
 import backend.errors.NoComponentSensorFoundException
 import com.profesorfalken.jsensors.JSensors
@@ -53,7 +54,7 @@ object DRIVE {
                 this.driveNames.add(drive.name)
             }
         }
-        println("Drives found! (${this.driveNames.joinToString()})")
+        Logger.log("Drives found! (${this.driveNames.joinToString()})", this.javaClass)
     }
 
 }

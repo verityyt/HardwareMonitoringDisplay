@@ -1,4 +1,5 @@
 import backend.Configuration
+import backend.Logger
 import backend.NotificationManager
 import backend.monitoring.CPU
 import backend.monitoring.DRIVE
@@ -46,7 +47,7 @@ object HardwareMonitoringDisplay {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        println("Starting Hardware Monitoring Display...")
+        Logger.log("Starting Hardware Monitoring Display...", this.javaClass)
 
         Configuration.check()
         WindowHandler.openWindow()
@@ -59,7 +60,8 @@ object HardwareMonitoringDisplay {
                     (WindowHandler.screen as StartingScreen).animateLoading(20, 30)
                 }
 
-                println("Checking OS...")
+
+                Logger.log("Checking OS...", this.javaClass)
 
                 if (WindowHandler.screen is StartingScreen) {
                     (WindowHandler.screen as StartingScreen).startingText = "loading.os"
@@ -68,11 +70,11 @@ object HardwareMonitoringDisplay {
 
                 val os = System.getProperty("os.name")
                 if (os != "Windows 10") {
-                    println("Wrong operating system! ($os)")
+                    Logger.log("Wrong operating system! ($os)", this.javaClass)
                     exitProcess(0)
                 }
 
-                println("Registering fonts...")
+                Logger.log("Registering fonts...", this.javaClass)
 
                 CustomFont.registerFonts().also {
                     if (WindowHandler.screen is StartingScreen) {
@@ -87,27 +89,27 @@ object HardwareMonitoringDisplay {
                 systemDrive = DRIVE
                 drive = DRIVE
 
-                println("RAM found! (${ram.maxRam()}mb)")
+                Logger.log("RAM found! (${ram.maxRam()}mb)", this.javaClass)
 
-                println("Searching for cpu...")
+                Logger.log("Searching for cpu...", this.javaClass)
 
-                println("CPU found! (${cpu.name()})").also {
+                Logger.log("CPU found! (${cpu.name()})", this.javaClass).also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.gpu"
                         (WindowHandler.screen as StartingScreen).animateLoading(60, 30)
                     }
                 }
 
-                println("Searching for gpu...")
+                Logger.log("Searching for gpu...", this.javaClass)
 
-                println("GPU found! (${gpu.name()})").also {
+                Logger.log("GPU found! (${gpu.name()})", this.javaClass).also {
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.drives"
                         (WindowHandler.screen as StartingScreen).animateLoading(75, 30)
                     }
                 }
 
-                println("Searching for drives...")
+                Logger.log("Searching for drives...", this.javaClass)
 
                 systemDrive.info().also {
                     if (WindowHandler.screen is StartingScreen) {
@@ -116,7 +118,7 @@ object HardwareMonitoringDisplay {
                     }
                 }
 
-                println("Hardware Monitoring Display started!")
+                Logger.log("Hardware Monitoring Display started!", this.javaClass)
             }
         }, 1000)
 

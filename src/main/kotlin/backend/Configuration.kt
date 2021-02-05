@@ -12,7 +12,7 @@ object Configuration {
         val json = JSONParser().parse(file.readText()) as JSONObject
 
         if(json["alarm_cpu"] == null) {
-            println("First start")
+            Logger.log("First start", this.javaClass)
 
             json["language"] = "en"
             json["style"] = "0"
@@ -44,7 +44,7 @@ object Configuration {
 
     fun set(key: String, value: String) {
 
-        println("Setting $key to $value")
+        Logger.log("Setting $key to $value", this.javaClass)
 
         val json = JSONParser().parse(file.readText()) as JSONObject
 

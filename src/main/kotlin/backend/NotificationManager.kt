@@ -29,7 +29,7 @@ object NotificationManager {
             trayIcon.isImageAutoSize = true
             tray.add(trayIcon)
         }else {
-            println("System tray is not supported!")
+            Logger.log("System tray is not supported!", this.javaClass)
         }
     }
 
@@ -66,7 +66,7 @@ object NotificationManager {
 
                     }, 9000)
                 } catch (e: Exception) {
-                    System.err.println(e.message)
+                    Logger.log(e.message!!, this.javaClass)
                 }
             }.start()
         }
