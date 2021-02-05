@@ -105,10 +105,10 @@ object WindowHandler {
 
             })
 
-            window.isUndecorated = false
+            window.isUndecorated = Configuration.get("fullscreen") == "true"
             window.setSize(800, 600)
             window.isResizable = false
-            window.isAlwaysOnTop = false
+            window.isAlwaysOnTop = Configuration.get("fullscreen") == "true"
             window.title = "Hardware Monitoring Display | ${HardwareMonitoringDisplay.version} (800x600)"
             window.iconImage = ImageIO.read(File("files/images/WindowIcon.png"))
 
@@ -123,6 +123,7 @@ object WindowHandler {
 
                 Configuration.set("posX", window.location.x.toString())
                 Configuration.set("posY", window.location.y.toString())
+                Configuration.set("fullscreen", window.isUndecorated.toString())
             })
 
             while (true) {

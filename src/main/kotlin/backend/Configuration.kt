@@ -27,6 +27,7 @@ object Configuration {
             json["alarm_gpu"] = "0"
             json["posX"] = "0"
             json["posY"] = "0"
+            json["fullscreen"] = "false"
 
             file.writeText(json.toJSONString())
         }
@@ -43,7 +44,7 @@ object Configuration {
 
     fun set(key: String, value: String) {
 
-        println("setting $key to $value")
+        println("Setting $key to $value")
 
         val json = JSONParser().parse(file.readText()) as JSONObject
 
