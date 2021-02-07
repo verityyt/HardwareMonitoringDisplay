@@ -41,7 +41,7 @@ object HardwareMonitoringDisplay {
     /**
      * Version of the Application
      */
-    val version = "v0.2.1"
+    val version = "v0.2.2"
 
     val ohmProcess = ProcessBuilder("files\\ohm_0-9-6\\OpenHardwareMonitor.exe").start()
 

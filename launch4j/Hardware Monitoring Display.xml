@@ -28,8 +28,8 @@
     <txtFileVersion>1.0.0.0</txtFileVersion>
     <fileDescription>Software to display all hardware informations</fileDescription>
     <copyright>verity</copyright>
-    <productVersion>0.1.8.0</productVersion>
-    <txtProductVersion>0.1.8.0</txtProductVersion>
+    <productVersion>0.2.2.0</productVersion>
+    <txtProductVersion>0.2.2.0</txtProductVersion>
     <productName>Hardware Monitoring Display</productName>
     <companyName>Verity Network</companyName>
     <internalName>HMD</internalName>
