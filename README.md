@@ -1,10 +1,10 @@
 # Hardware Monitoring Display
 
-HMD (= Hardware Monitoring Display) is a software to help you, with many useful features, keep your Hardware Temperature in the eye.
+HMD *(= Hardware Monitoring Display)* is a software to help you, with many useful features, keep your Hardware Temperature in the eye.
 
 ## Features
 
-- Alarm (If temperature of cpu/gpu higher than the value you specified)
+- Alarm *(If temperature of cpu/gpu higher than the value you specified)*
 - 6 different reactive and non-reactive styles
 - Full color control to personalize the styles even more
 
