@@ -4,15 +4,11 @@ HMD (= Hardware Monitoring Display) is a software to help you, with many useful 
 
 ## Features
 
-------
-
 - Alarm (If temperature of cpu/gpu higher than the value you specified)
 - 6 different reactive and non-reactive styles
 - Full color control to personalize the styles even more
 
 ## How to install
-
-------
 
 ### Windows
 **Step 1:** Just download the **[latest Installer](https://github.com/verityyt/hmd-installer/releases/)**
@@ -30,7 +26,6 @@ I am sorry, but currently only **Windows 10** is supported
 
 ## FAQ
 
-------
 ### Which Hardware is supported?
 Basically **every hardware** from **every brand** is supported
 
