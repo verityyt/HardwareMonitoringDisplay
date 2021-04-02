@@ -32,6 +32,12 @@ object StartingScreen : Screen() {
      */
     var startingText = "loading.fonts"
 
+    override var cpuTemperature: String? = null
+    override var gpuTemperature: String? = null
+    override var drive1Temperature: String? = null
+    override var drive2Temperature: String? = null
+    override var ramLoad: String? = null
+
     override fun paint(graphics: Graphics, graphics2D: Graphics2D, observer: ImageObserver) {
 
         graphics.drawImage(ImageIO.read(File("files/images/Rocket.png")), 337, 198, 125, 125, observer)

@@ -10,8 +10,12 @@ import java.awt.image.ImageObserver
 
 object StyleOneScreen : Screen() { // Screen with nonreactive cpu and gpu temperature circles
 
-    private var cpuTemperature: String = LanguageTranslator.get("style.loading")
-    private var gpuTemperature: String = LanguageTranslator.get("style.loading")
+    override var cpuTemperature: String? = LanguageTranslator.get("style.loading")
+    override var gpuTemperature: String? = LanguageTranslator.get("style.loading")
+
+    override var drive1Temperature: String? = null
+    override var drive2Temperature: String? = null
+    override var ramLoad: String? = null
 
     init {
         Thread {
@@ -35,12 +39,12 @@ object StyleOneScreen : Screen() { // Screen with nonreactive cpu and gpu temper
 
         UICircles().paint(
             graphics, 90, 175, 250, ColorPalette.COLOR_CPU, 7f, "CPU", 24f, Rectangle(90, 175 + 91, 250, 19),
-            cpuTemperature, 45f, Rectangle(90, 180 + 120, 250, 19),
+            cpuTemperature!!, 45f, Rectangle(90, 180 + 120, 250, 19),
             180
         )
         UICircles().paint(
             graphics, 460, 175, 250, ColorPalette.COLOR_GPU, 7f, "GPU", 24f, Rectangle(460, 175 + 91, 250, 19),
-            gpuTemperature, 45f, Rectangle(460, 180 + 120, 250, 19),
+            gpuTemperature!!, 45f, Rectangle(460, 180 + 120, 250, 19),
             180
         )
 
