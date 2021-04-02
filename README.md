@@ -24,6 +24,11 @@ HMD *(= Hardware Monitoring Display)* is a software to help you, with many usefu
 ### Linux & Mac
 I am sorry, but currently only **Windows 10** is supported
 
+## Linked projects
+[Installer](https://github.com/verityyt/hmd-installer)
+
+[SDK](https://github.com/verityyt/hardware-monitoring-sdk)
+
 ## FAQ
 
 ### Which Hardware is supported?
