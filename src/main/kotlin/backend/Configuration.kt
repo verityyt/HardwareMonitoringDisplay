@@ -14,7 +14,7 @@ object Configuration {
         try {
             val json = JSONParser().parse(file.readText()) as JSONObject
 
-            if (json["alarm_cpu"] == null) {
+            if (json["sdk_port"] == null) {
                 createConfig()
             }
         } catch (e: FileNotFoundException) {
@@ -25,6 +25,10 @@ object Configuration {
     }
 
     private fun createConfig() {
+        if(file.exists()) {
+            file.deleteRecursively()
+        }
+
         val json = JSONObject()
         Logger.log("Config file does not exists", this.javaClass)
 
@@ -42,6 +46,8 @@ object Configuration {
         json["posX"] = "0"
         json["posY"] = "0"
         json["fullscreen"] = "false"
+        json["allow_sdk"] = "true"
+        json["sdk_port"] = "6969"
 
         file.writeText(json.toJSONString())
     }
