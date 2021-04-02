@@ -5,6 +5,7 @@ import backend.monitoring.CPU
 import backend.monitoring.DRIVE
 import backend.monitoring.GPU
 import backend.monitoring.RAM
+import backend.server.Server
 import frontend.WindowHandler
 import frontend.screens.StartingScreen
 import frontend.utils.CustomFont
@@ -52,6 +53,7 @@ object HardwareMonitoringDisplay {
         Configuration.check()
         WindowHandler.openWindow()
         NotificationManager.startUp()
+        Server.startup()
 
         Timer().schedule(object : TimerTask() {
             override fun run() {
@@ -112,13 +114,16 @@ object HardwareMonitoringDisplay {
                 Logger.log("Searching for drives...", this.javaClass)
 
                 systemDrive.info().also {
+                    Logger.log("Hardware Monitoring Display started!", this.javaClass)
+
+                    Server.startSending(5000)
+
                     if (WindowHandler.screen is StartingScreen) {
                         (WindowHandler.screen as StartingScreen).startingText = "loading.finished"
                         (WindowHandler.screen as StartingScreen).animateLoading(100, 30)
                     }
                 }
 
-                Logger.log("Hardware Monitoring Display started!", this.javaClass)
             }
         }, 1000)
 
